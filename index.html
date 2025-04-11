@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="description" content="Legatio Finance : Leader de la tokenisation d'actifs réels (RWA). Investissez dans des fonds thématiques, collectionnez des NFTs exclusifs, et participez à l'airdrop $LEG en 2026.">
+    <meta name="keywords" content="tokenisation RWA, immobilier durable, fonds tokenisés, NFTs exclusifs, Legatio Finance, blockchain, finance décentralisée, Legatio Academy, OpenSea, Magic Eden, Arbitrum">
+    <meta name="author" content="Legatio Finance Team">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Legatio Finance - Leader de la Tokenisation RWA">
+    <meta property="og:description" content="Investissez dans des actifs réels tokenisés avec Legatio. Découvrez nos fonds thématiques, notre simulateur de rendement, et notre Club exclusif.">
+    <meta property="og:image" content="https://delmarcrypto.github.io/legatio.finance/images/og-image.jpg">
+    <meta property="og:url" content="https://delmarcrypto.github.io/legatio.finance/">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rdb_legend">
+    <meta name="twitter:title" content="Legatio Finance - Leader de la Tokenisation RWA">
+    <meta name="twitter:description" content="Investissez dans des actifs réels tokenisés avec Legatio. Découvrez nos fonds thématiques, notre simulateur de rendement, et notre Club exclusif.">
+    <meta name="twitter:image" content="https://delmarcrypto.github.io/legatio.finance/images/og-image.jpg">
+    <title>Legatio Finance - Tokenisation d'Actifs Réels</title>
+    <link rel="icon" type="image/png" href="https://delmarcrypto.github.io/legatio.finance/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Legatio Finance",
+      "url": "https://delmarcrypto.github.io/legatio.finance/",
+      "logo": "https://delmarcrypto.github.io/legatio.finance/images/og-image.jpg",
+      "description": "Legatio Finance est le leader de la tokenisation d'actifs réels (RWA) via blockchain. Investissez dans des fonds thématiques, explorez notre simulateur de rendement, et rejoignez notre Club exclusif.",
+      "sameAs": [
+        "https://x.com/rdb_legend",
+        "https://discord.com/channels/1347668715357077577/1347668716120182888"
+      ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #FFD700; /* Gold for premium feel */
+            --background: #0A0A0A; /* Deep black */
+            --text: #FFFFFF; /* White text */
+            --button-bg: #1A1A1A; /* Dark button */
+            --button-text: #FFD700; /* Gold button text */
+            --hover-dark: #FFBF00; /* Lighter gold for hover */
+            --accent-gold: #FFE066; /* Secondary gold */
+            --glow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFE066; /* Gold glow */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat, linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            color: var(--text);
+            position: relative;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: var(--glow);
+            text-decoration: none;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a:focus {
+            color: var(--primary);
+            outline: none;
+        }
+
+        /* Header */
+        .header {
+            padding: 5rem 1rem;
+            text-align: center;
+            background: url('https://delmarcrypto.github.io/legatio.finance/images/hero-bg.jpg') no-repeat center/cover;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: var(--glow);
+            animation: glow 2s infinite;
+        }
+
+        .header-content .catchphrase {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 1.5rem 0;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: var(--glow); }
+            50% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFE066; }
+            100% { text-shadow: var(--glow); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: var(--primary);
+            text-shadow: var(--glow);
+            animation: glow 2s infinite;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: var(--hover-dark);
+            transform: scale(1.05);
+            outline: none;
+        }
+
+        .simulator-cta {
+            background: var(--button-bg);
+            border: 2px solid var(--primary);
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            color: var(--button-text);
+        }
+
+        .simulator-cta:hover {
+            background: var(--hover-dark);
+            border-color: var(--hover-dark);
+        }
+
+        /* Grid Layouts */
+        .token-benefits-list,
+        .funds-list,
+        .roadmap-timeline,
+        .team-container,
+        .partner-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .token-benefit,
+        .fund-item,
+        .roadmap-item,
+        .team-member,
+        .partner-logo {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .token-benefit:hover,
+        .fund-item:hover,
+        .roadmap-item:hover,
+        .team-member:hover,
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .token-benefit i,
+        .fund-item i,
+        .how-to-invest i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item {
+            text-align: left;
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .roadmap-item h3 i {
+            margin-right: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        /* Simulator */
+        .simulator-container {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .simulator-container input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: #2A2A2A;
+            color: var(--text);
+        }
+
+        /* Club Section */
+        .club-section {
+            background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .club-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--hover-dark);
+        }
+
+        .social-links a {
+            color: var(--text);
+            margin: 0 1rem;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            color: var(--primary);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .navbar .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content .catchphrase {
+                font-size: 1.3rem;
+            }
+
+            .token-benefits-list,
+            .funds-list,
+            .roadmap-timeline,
+            .team-container,
+            .partner-logos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav class="container" role="navigation" aria-label="Menu principal">
+            <a href="#start" class="logo-link" aria-label="Retour à l'accueil">
+                <span class="logo-text">Legatio Finance</span>
+            </a>
+            <ul>
+                <li><a href="#start" aria-current="page">Accueil</a></li>
+                <li><a href="#funds">Fonds</a></li>
+                <li><a href="#simulator">Simulateur</a></li>
+                <li><a href="#nfts">NFTs</a></li>
+                <li><a href="#airdrop">Airdrop</a></li>
+                <li><a href="#academy">Academy</a></li>
+                <li><a href="#club">Club</a></li>
+                <li><a href="#partners">Partenaires</a></li>
+                <li><a href="#investors">Investisseurs</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="header" id="start">
+            <div class="header-content">
+                <h1>Legatio Finance</h1>
+                <p class="catchphrase">Tokenisez l’avenir : Investissez dans des actifs réels avec le leader du Web3.</p>
+                <a href="#funds" class="cta-button simulator-cta" aria-label="Découvrir les fonds">Découvrir nos Fonds</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="section funds" id="funds">
+                <h2>Fonds Thématiques Tokenisés</h2>
+                <p>Investissez dans des actifs réels diversifiés via nos fonds tokenisés, conçus pour maximiser vos rendements.</p>
+                <div class="funds-list">
+                    <article class="fund-item">
+                        <i class="fas fa-city"></i>
+                        <h3>Urban Growth Fund</h3>
+                        <p>Immobilier durable dans les métropoles en expansion.</p>
+                        <a href="#simulator" class="cta-button">Simuler Rendement</a>
+                    </article>
+                    <article class="fund-item">
+                        <i class="fas fa-gem"></i>
+                        <h3>Gold-Backed Real Estate Fund</h3>
+                        <p>Propriétés adossées à l’or pour une stabilité accrue.</p>
+                        <a href="#simulator" class="cta-button">Simuler Rendement</a>
+                    </article>
+                    <article class="fund-item">
+                        <i class="fas fa-home"></i>
+                        <h3>Social Housing Fund</h3>
+                        <p>Logements sociaux pour un impact positif.</p>
+                        <a href="#simulator" class="cta-button">Simuler Rendement</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section simulator" id="simulator">
+                <h2>Simulateur de Rendement RWA</h2>
+                <p>Estimez vos gains potentiels avec notre outil interopérable, basé sur des données immobilières en temps réel.</p>
+                <div class="simulator-container">
+                    <label for="investment-amount">Montant à investir ($):</label>
+                    <input type="number" id="investment-amount" placeholder="Ex. 10000" aria-label="Montant à investir">
+                    <label for="fund-type">Type de fonds :</label>
+                    <select id="fund-type" aria-label="Type de fonds">
+                        <option value="urban">Urban Growth Fund</option>
+                        <option value="gold">Gold-Backed Real Estate Fund</option>
+                        <option value="social">Social Housing Fund</option>
+                    </select>
+                    <button class="cta-button" onclick="simulateReturns()">Simuler</button>
+                    <p id="simulator-result" class="hidden"></p>
+                </div>
+            </section>
+
+            <section class="section nfts" id="nfts">
+                <h2>NFTs Legatio Genesis</h2>
+                <p>Collectionnez des NFTs uniques pour accéder à des avantages exclusifs dans notre écosystème, y compris le Club Legatio.</p>
+                <div id="wallet-message" class="wallet-message hidden">
+                    <p>Veuillez connecter MetaMask sur Arbitrum pour acheter des NFTs.</p>
+                    <button class="cta-button" onclick="connectMetaMask()">Connecter MetaMask</button>
+                </div>
+                <div class="token-benefits-list">
+                    <article class="token-benefit">
+                        <img src="https://delmarcrypto.github.io/legatio-finance/Citizen.jpeg" alt="Citizen NFT" style="width: 100%; height: auto; border-radius: 5px;">
+                        <h3>Citizen (0.05 ETH)</h3>
+                        <p>Accès au Club Legatio.</p>
+                        <a href="https://opensea.io/collection/legatio-genesis" class="cta-button" target="_blank" rel="noopener noreferrer">Acheter sur OpenSea</a>
+                    </article>
+                    <article class="token-benefit">
+                        <img src="https://delmarcrypto.github.io/legatio-finance/Elite.jpeg" alt="Elite NFT" style="width: 100%; height: auto; border-radius: 5px;">
+                        <h3>Elite (0.5 ETH)</h3>
+                        <p>Bonus sur les rendements.</p>
+                        <a href="https://opensea.io/collection/legatio-genesis" class="cta-button" target="_blank" rel="noopener noreferrer">Acheter sur OpenSea</a>
+                    </article>
+                    <article class="token-benefit">
+                        <img src="https://delmarcrypto.github.io/legatio-finance/Prime.jpeg" alt="Prime NFT" style="width: 100%; height: auto; border-radius: 5px;">
+                        <h3>Prime (5 ETH)</h3>
+                        <p>Accès anticipé aux deals.</p>
+                        <a href="https://opensea.io/collection/legatio-genesis" class="cta-button" target="_blank" rel="noopener noreferrer">Acheter sur OpenSea</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section airdrop" id="airdrop">
+                <h2>Airdrop $LEG</h2>
+                <p>Recevez des tokens $LEG en Q1 2026 pour participer à la gouvernance et au staking de notre écosystème.</p>
+                <div class="countdown">
+                    <h3>Temps restant avant le snapshot (Q3 2025) :</h3>
+                    <div id="countdown-timer" class="countdown-timer">
+                        <span id="days">00</span> jours
+                        <span id="hours">00</span> heures
+                        <span id="minutes">00</span> minutes
+                        <span id="seconds">00</span> secondes
+                    </div>
+                </div>
+                <form id="airdrop-form" class="airdrop-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
+                    <label for="email">Votre email :</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required aria-label="Email pour inscription à l'airdrop">
+                    <label for="wallet">Adresse Arbitrum :</label>
+                    <input type="text" id="wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
+                    <input type="hidden" name="_subject" value="Inscription à l'Airdrop de Legatio Finance">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
+                    <button type="submit" class="cta-button">S’inscrire</button>
+                </form>
+                <p id="airdrop-message" class="hidden"></p>
+            </section>
+
+            <section class="section academy" id="academy">
+                <h2>Legatio Academy</h2>
+                <p>Formez-vous à la tokenisation RWA, à la blockchain, et à l’investissement immobilier avec nos cours exclusifs.</p>
+                <a href="https://delmarcrypto.github.io/Formation-Legatio/" class="cta-button simulator-cta" target="_blank" rel="noopener noreferrer" aria-label="Découvrir la Legatio Academy">Rejoindre l’Academy</a>
+            </section>
+
+            <section class="section club" id="club">
+                <h2>Club Legatio Private</h2>
+                <p>Rejoignez notre club exclusif pour accéder à des deals uniques, des NFT VIP, et des privilèges réservés.</p>
+                <div class="token-benefits-list">
+                    <article class="token-benefit">
+                        <i class="fas fa-star"></i>
+                        <h3>Deals Exclusifs</h3>
+                        <p>Accédez à des opportunités d’investissement réservées.</p>
+                    </article>
+                    <article class="token-benefit">
+                        <i class="fas fa-crown"></i>
+                        <h3>NFT VIP</h3>
+                        <p>Bonus sur tous les investissements.</p>
+                    </article>
+                    <article class="token-benefit">
+                        <i class="fas fa-fire"></i>
+                        <h3>Token Burn</h3>
+                        <p>Tokenomics déflationniste pour plus de valeur.</p>
+                    </article>
+                </div>
+                <a href="#nfts" class="cta-button simulator-cta" aria-label="Rejoindre le Club Legatio">Rejoindre le Club</a>
+            </section>
+
+            <section class="section partners" id="partners">
+                <h2>Nos Partenaires Stratégiques</h2>
+                <div class="partner-logos-grid">
+                    <a href="https://www.seba.swiss/" target="_blank" rel="noopener noreferrer" aria-label="SEBA Bank">
+                        <img src="https://delmarcrypto.github.io/legatio-finance/seba-logo.png" alt="SEBA Bank" class="partner-logo" style="max-width: 150px;">
+                    </a>
+                    <a href="https://www.nexity.fr/" target="_blank" rel="noopener noreferrer" aria-label="Nexity">
+                        <img src="https://delmarcrypto.github.io/legatio-finance/nexity-logo.png" alt="Nexity" class="partner-logo" style="max-width: 150px;">
+                    </a>
+                    <a href="https://opensea.io/" target="_blank" rel="noopener noreferrer" aria-label="OpenSea">
+                        <img src="https://delmarcrypto.github.io/legatio-finance/opensea-logo.png" alt="OpenSea" class="partner-logo" style="max-width: 150px;">
+                    </a>
+                </div>
+            </section>
+
+            <section class="section security">
+                <h2>Sécurité & Conformité</h2>
+                <p>Nos actifs tokenisés sont audités par des tiers indépendants et conformes aux régulations internationales.</p>
+                <div class="token-benefits-list">
+                    <article class="token-benefit">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Assurance Décentralisée</h3>
+                        <p>Protection des investisseurs via un pool sécurisé.</p>
+                    </article>
+                    <article class="token-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Audits Indépendants</h3>
+                        <p>Chaque bien est vérifié par des experts.</p>
+                    </article>
+                    <article class="token-benefit">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Bridge Juridique</h3>
+                        <p>NFTs liés à des contrats notariés.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section roadmap">
+                <h2>Roadmap 2025-2030</h2>
+                <div class="roadmap-timeline">
+                    <article class="roadmap-item">
+                        <h3><i class="fas fa-rocket"></i> Q3 2025</h3>
+                        <p>Lancement des premiers fonds tokenisés.</p>
+                        <p>Snapshot pour l’airdrop $LEG.</p>
+                    </article>
+                    <article class="roadmap-item">
+                        <h3><i class="fas fa-globe"></i> Q1 2026</h3>
+                        <p>Airdrop $LEG et lancement du staking.</p>
+                        <p>Expansion en Europe (Portugal, Espagne).</p>
+                    </article>
+                    <article class="roadmap-item">
+                        <h3><i class="fas fa-building"></i> 2027</h3>
+                        <p>50 immeubles tokenisés sous gestion.</p>
+                        <p>Legatio Summit inaugural.</p>
+                    </article>
+                    <article class="roadmap-item">
+                        <h3><i class="fas fa-trophy"></i> 2030</h3>
+                        <p>$1B de RWA tokenisés.</p>
+                        <p>Top 3 des protocoles RWA mondiaux.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section investors" id="investors">
+                <h2>Pour les Investisseurs</h2>
+                <p>Rejoignez notre vision de révolutionner la finance via la tokenisation RWA.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://delmarcrypto.github.io/Pitch-Deck/" class="cta-button" target="_blank" rel="noopener noreferrer">Pitch Deck</a>
+                    <a href="https://delmarcrypto.github.io/White-Paper/" class="cta-button" target="_blank" rel="noopener noreferrer">White Paper</a>
+                    <a href="https://delmarcrypto.github.io/Business-Plan/" class="cta-button" target="_blank" rel="noopener noreferrer">Business Plan</a>
+                </div>
+                <p class="investor-contact">Intéressé à investir ? <a href="mailto:invest@legatio.finance">Contactez-nous</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://x.com/rdb_legend" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/channels/1347668715357077577/1347668716120182888" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#faq">FAQ</a> | 
+                <a href="https://delmarcrypto.github.io/legatio-finance/privacy.html" target="_blank" rel="noopener noreferrer">Confidentialité</a> | 
+                <a href="https://delmarcrypto.github.io/legatio-finance/terms.html" target="_blank" rel="noopener noreferrer">Conditions</a>
+            </div>
+            <p>Contact : <a href="mailto:legatio.finance@gmail.com">legatio.finance@gmail.com</a></p>
+            <p>© 2025 Legatio Finance. Tous droits réservés.</p>
+            <a href="#start" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i> Retour en haut</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" defer></script>
+    <script>
+        // MetaMask Connection
+        let provider, userAddress;
+
+        async function connectMetaMask() {
+            const walletMessage = document.getElementById('wallet-message');
+            if (!window.ethereum) {
+                walletMessage.classList.remove('hidden');
+                walletMessage.innerHTML = 'MetaMask requis. <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer">Téléchargez MetaMask</a>.';
+                return;
+            }
+
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                userAddress = accounts[0];
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+
+                if (await window.ethereum.request({ method: 'eth_chainId' }) !== '0xa4b1') {
+                    await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0xa4b1' }] });
+                    walletMessage.classList.remove('hidden');
+                    walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+                } else {
+                    walletMessage.classList.remove('hidden');
+                    walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+                }
+            } catch (e) {
+                walletMessage.classList.remove('hidden');
+                walletMessage.innerHTML = e.message || 'Erreur de connexion.';
+            }
+        }
+
+        window.addEventListener('load', () => {
+            if (window.ethereum) {
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                provider.listAccounts().then(accounts => {
+                    if (accounts.length > 0) {
+                        userAddress = accounts[0];
+                        document.getElementById('wallet-message').classList.remove('hidden');
+                        document.getElementById('wallet-message').innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+                    } else {
+                        document.getElementById('wallet-message').classList.remove('hidden');
+                    }
+                });
+            } else {
+                document.getElementById('wallet-message').classList.remove('hidden');
+            }
+        });
+
+        // Airdrop Form
+        document.getElementById('airdrop-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const message = document.getElementById('airdrop-message');
+            message.classList.remove('hidden');
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    message.textContent = 'Inscription réussie ! Éligible pour l’airdrop $LEG en Q1 2026.';
+                    form.reset();
+                } else {
+                    message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+                }
+            } catch (e) {
+                message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+            }
+        });
+
+        // Simulator (Placeholder)
+        function simulateReturns() {
+            const amount = document.getElementById('investment-amount').value;
+            const fundType = document.getElementById('fund-type').value;
+            const result = document.getElementById('simulator-result');
+            result.classList.remove('hidden');
+
+            if (!amount || amount <= 0) {
+                result.textContent = 'Veuillez entrer un montant valide.';
+                return;
+            }
+
+            const yields = {
+                urban: 0.08,
+                gold: 0.05,
+                social: 0.06
+            };
+            const projected = (amount * yields[fundType]).toFixed(2);
+            result.textContent = `Rendement annuel estimé : $${projected} pour ${fundType}.`;
+        }
+
+        // Countdown
+        const snapshotDate = new Date('2025-09-30T23:59:59');
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = snapshotDate - now;
+
+            if (timeDifference <= 0) {
+                document.getElementById('countdown-timer').innerHTML = 'Snapshot terminé !';
+                return;
+            }
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
