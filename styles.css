@@ -1,0 +1,406 @@
+/* Variables */
+:root {
+    --primary: #FFD700; /* Gold for premium feel */
+    --background: #0A0A0A; /* Deep black */
+    --text: #FFFFFF; /* White text */
+    --button-bg: #1A1A1A; /* Dark button */
+    --button-text: #FFD700; /* Gold button text */
+    --hover-dark: #FFBF00; /* Lighter gold for hover */
+    --accent-gold: #FFE066; /* Secondary gold */
+    --glow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFE066; /* Gold glow */
+}
+
+/* Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat, linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+    color: var(--text);
+    position: relative;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar .logo-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-shadow: var(--glow);
+    text-decoration: none;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: var(--primary);
+    outline: none;
+}
+
+/* Header */
+.header {
+    padding: 5rem 1rem;
+    text-align: center;
+    background: url('https://delmarcrypto.github.io/legatio.finance/images/hero-bg.jpg') no-repeat center/cover;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-shadow: var(--glow);
+    animation: glow 2s infinite;
+}
+
+.header-content .catchphrase {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 1.5rem 0;
+}
+
+@keyframes glow {
+    0% { text-shadow: var(--glow); }
+    50% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFE066; }
+    100% { text-shadow: var(--glow); }
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Section */
+.section {
+    padding: 3rem 0;
+}
+
+.section h2 {
+    text-align: center;
+    color: var(--primary);
+    text-shadow: var(--glow);
+    animation: glow 2s infinite;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--button-bg);
+    color: var(--button-text);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.3s;
+    margin: 0.5rem;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background: var(--hover-dark);
+    transform: scale(1.05);
+    outline: none;
+}
+
+.simulator-cta {
+    background: var(--button-bg);
+    border: 2px solid var(--primary);
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    color: var(--button-text);
+}
+
+.simulator-cta:hover {
+    background: var(--hover-dark);
+    border-color: var(--hover-dark);
+}
+
+/* Grid Layouts */
+.token-benefits-list,
+.funds-list,
+.roadmap-timeline,
+.team-container,
+.partner-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.token-benefit,
+.fund-item,
+.roadmap-item,
+.team-member,
+.partner-logo {
+    background: #1A1A1A;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.token-benefit:hover,
+.fund-item:hover,
+.roadmap-item:hover,
+.team-member:hover,
+.partner-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.token-benefit i,
+.fund-item i,
+.how-to-invest i {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.roadmap-item {
+    text-align: left;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+}
+
+.roadmap-item h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-gold);
+}
+
+/* Wallet Message */
+.wallet-message {
+    background: #2A2A2A;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--primary);
+}
+
+.wallet-message p {
+    margin-bottom: 0.5rem;
+}
+
+.wallet-message a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.wallet-message a:hover {
+    color: var(--hover-dark);
+}
+
+/* Simulator */
+.simulator-container {
+    background: #1A1A1A;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.simulator-container input,
+.simulator-container select {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: #2A2A2A;
+    color: var(--text);
+}
+
+/* Airdrop Form */
+.airdrop-form {
+    background: #1A1A1A;
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.airdrop-form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    font-weight: bold;
+    color: var(--accent-gold);
+}
+
+.airdrop-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: #2A2A2A;
+    color: var(--text);
+}
+
+/* Club Section */
+.club-section {
+    background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.club-section h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+/* Countdown */
+.countdown {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.countdown h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.countdown-timer {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.countdown-timer span {
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin: 0 0.2rem;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--hover-dark);
+}
+
+.social-links a {
+    color: var(--text);
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    color: var(--primary);
+}
+
+.back-to-top {
+    display: block;
+    margin-top: 1rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    color: var(--hover-dark);
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .navbar .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-content .catchphrase {
+        font-size: 1.3rem;
+    }
+
+    .token-benefits-list,
+    .funds-list,
+    .roadmap-timeline,
+    .team-container,
+    .partner-logos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .countdown-timer {
+        font-size: 1rem;
+    }
+}
