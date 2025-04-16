@@ -328,6 +328,89 @@
             margin-bottom: 1rem;
         }
 
+        /* Styles pour la section NFTs */
+.section#nfts {
+    background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+    padding: 3rem 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.nft-card {
+    background: #1A1A1A;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.nft-image {
+    max-width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.nft-card h3 {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nft-price {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.nft-description {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.nft-stats {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.nft-stats p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nft-grid {
+        grid-template-columns: 1fr;
+    }
+    .nft-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
         .grid-item img:not([src]), .grid-item img[src=""] {
             content: url('https://via.placeholder.com/150x150?text=Image+Indisponible');
         }
