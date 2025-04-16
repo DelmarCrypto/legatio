@@ -1,0 +1,28 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Définitions pour le glow -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0" result="offsetBlur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fond transparent avec texture étoilée subtile -->
+  <rect width="100" height="100" fill="transparent"/>
+
+  <!-- Monogramme "S" -->
+  <path d="M50 30 C60 30 70 40 70 50 C70 60 60 70 50 70 C40 70 30 60 30 50 C30 40 40 30 50 30 Z M50 40 C45 40 40 45 40 50 C40 55 45 60 50 60 C55 60 60 55 60 50 C60 45 55 40 50 40 Z" fill="#FFD700" filter="url(#glow)"/>
+
+  <!-- Anneau orbital -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#FFE066" stroke-width="1" opacity="0.5"/>
+
+  <!-- Texte "SEBA" -->
+  <text x="50" y="85" font-family="Orbitron, sans-serif" font-size="14" fill="#FFE066" text-anchor="middle" filter="url(#glow)">SEBA</text>
+</svg>
