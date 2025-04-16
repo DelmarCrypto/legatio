@@ -321,6 +321,17 @@
             color: var(--primary);
         }
 
+        /* NFT and Partner Logos */
+        .grid-item img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item img:not([src]), .grid-item img[src=""] {
+            content: url('https://via.placeholder.com/150x150?text=Image+Indisponible');
+        }
+
         /* Media Queries */
         @media (max-width: 768px) {
             .navbar ul {
@@ -424,41 +435,43 @@
                 </div>
             </section>
 
-          <section class="section" id="nfts">
-                <h2>5. NFTs Legatio Genesis</h2>
-                <p>6 650 NFTs immobiliers pour financer le MVP :</p>
+            <section class="section" id="nfts">
+                <h2>NFTs Legatio Genesis</h2>
+                <p>6 650 NFTs immobiliers exclusifs pour financer le MVP :</p>
                 <div class="grid">
                     <div class="grid-item">
-                        <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne">
+                        <img src="images/CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne">
                         <h3>City Pod (0.015 ETH)</h3>
                         <p>3 000 studios urbains.</p>
                     </div>
                     <div class="grid-item">
-                        <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville">
+                        <img src="images/UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville">
                         <h3>Urban Nest (0.03 ETH)</h3>
                         <p>2 000 appartements modernes.</p>
                     </div>
                     <div class="grid-item">
-                        <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue">
+                        <img src="images/SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue">
                         <h3>Suburban Haven (0.05 ETH)</h3>
                         <p>1 000 maisons familiales.</p>
                     </div>
                     <div class="grid-item">
-                        <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe">
+                        <img src="images/AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe">
                         <h3>Azure Prestige (0.1 ETH)</h3>
                         <p>500 villas méditerranéennes.</p>
                     </div>
                     <div class="grid-item">
-                        <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville">
+                        <img src="images/SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville">
                         <h3>Sky Crown (0.25 ETH)</h3>
                         <p>100 penthouses de luxe.</p>
                     </div>
                     <div class="grid-item">
-                        <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium">
+                        <img src="images/EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium">
                         <h3>Eternal Estate (1 ETH)</h3>
                         <p>50 domaines exclusifs.</p>
                     </div>
                 </div>
+                <p>Levée : 500K-850K € (280 ETH). Vente : Q2-Q3 2025.</p>
+            </section>
 
             <section class="section airdrop" id="airdrop">
                 <h2>Airdrop $LEG</h2>
@@ -514,23 +527,24 @@
                 <a href="#nfts" class="cta-button simulator-cta" aria-label="Rejoindre le Club Legatio">Rejoindre le Club</a>
             </section>
 
-                 <section class="section" id="partenariats">
-                <h2>7. Partenariats Stratégiques</h2>
-                <div class="grid">
-                    <div class="grid-item">
-                        <img src="seba-logo.svg" alt="SEBA Bank Logo - Partenaire pour la conformité bancaire">
+            <section class="section" id="partners">
+                <h2>Partenariats Stratégiques</h2>
+                <p>Nous collaborons avec des leaders du secteur pour garantir conformité, expertise et visibilité.</p>
+                <div class="partner-logos-grid">
+                    <div class="partner-logo">
+                        <img src="images/seba-logo.svg" alt="Logo SEBA Bank - Partenaire pour la conformité bancaire">
                         <h3>SEBA Bank</h3>
-                        <p>Conformité bancaire.</p>
+                        <p>Conformité bancaire et services financiers.</p>
                     </div>
-                    <div class="grid-item">
-                        <img src="nexity-logo.svg" alt="Nexity Logo - Partenaire pour l'expertise immobilière">
+                    <div class="partner-logo">
+                        <img src="images/nexity-logo.svg" alt="Logo Nexity - Partenaire pour l'expertise immobilière">
                         <h3>Nexity</h3>
-                        <p>Expertise immobilière.</p>
+                        <p>Expertise immobilière et développement durable.</p>
                     </div>
-                    <div class="grid-item">
-                        <img src="opensea-logo.svg" alt="OpenSea Logo - Partenaire pour le marketplace NFTs">
+                    <div class="partner-logo">
+                        <img src="images/opensea-logo.svg" alt="Logo OpenSea - Partenaire pour le marketplace NFTs">
                         <h3>OpenSea</h3>
-                        <p>Marketplace NFTs.</p>
+                        <p>Marketplace leader pour les NFTs.</p>
                     </div>
                 </div>
             </section>
