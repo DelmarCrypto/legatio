@@ -523,6 +523,90 @@
             line-height: 1.4;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-content label {
+            display: block;
+            margin: 0.5rem 0;
+            color: var(--text);
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: #2A2A2A;
+            color: var(--text);
+        }
+
+        .modal-content button[type="submit"] {
+            background: var(--button-bg);
+            color: var(--button-text);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background: var(--hover-dark);
+            transform: scale(1.05);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: var(--primary);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .form-message.success {
+            color: var(--accent-gold);
+        }
+
+        .form-message.error {
+            color: #FF5555;
+        }
+
         /* Media Queries */
         @media (max-width: 768px) {
             .navbar ul {
@@ -816,12 +900,12 @@
             <section class="section investors" id="investors">
                 <h2>Pour les Investisseurs</h2>
                 <p>Rejoignez notre vision de révolutionner la finance via la tokenisation RWA.</p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="https://delmarcrypto.github.io/Pitch-Deck/" class="cta-button" target="_blank" rel="noopener noreferrer">Pitch Deck</a>
                     <a href="https://delmarcrypto.github.io/White-Paper/" class="cta-button" target="_blank" rel="noopener noreferrer">White Paper</a>
                     <a href="https://delmarcrypto.github.io/Business-Plan/" class="cta-button" target="_blank" rel="noopener noreferrer">Business Plan</a>
                 </div>
-   <p class="investor-contact">Prêt à investir dans la tokenisation RWA ? <a href="mailto:invest@legatio.finance" class="cta-button">Contactez-nous</a></p>
+            </section>
 
             <section class="section" id="faq">
                 <h2>Foire Aux Questions (FAQ)</h2>
@@ -906,6 +990,27 @@
         </div>
     </main>
 
+    <!-- Modal for Contact Form -->
+    <div class="modal" id="contactModal" role="dialog" aria-labelledby="contactModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()" aria-label="Fermer la fenêtre de contact">×</button>
+            <h3 id="contactModalTitle">Nous Contacter</h3>
+            <form id="contact-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required aria-required="true"></textarea>
+                <input type="hidden" name="_subject" value="Nouveau message de contact - Legatio Finance">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
+                <button type="submit" class="cta-button">Envoyer</button>
+            </form>
+            <p id="contact-message" class="form-message hidden"></p>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="social-links">
@@ -915,12 +1020,13 @@
             <div class="footer-links">
                 <a href="#faq">FAQ</a> | 
                 <a href="https://delmarcrypto.github.io/legatio-finance/privacy.html" target="_blank" rel="noopener noreferrer">Confidentialité</a> | 
-                <a href="https://delmarcrypto.github.io/legatio-finance/terms.html" target="_blank" rel="noopener noreferrer">Conditions</a>
+                <a href="https://delmarcrypto.github.io/legatio-finance/terms.html" target="_blank" rel="noopener noreferrer">Conditions</a> | 
+                <a href="#" onclick="openModal()" class="cta-button" aria-label="Ouvrir le formulaire de contact">Nous Contacter</a>
             </div>
             <p>© 2025 Legatio Finance. Tous droits réservés.</p>
-            <p>contact : legatio.finance@gmail.com</p>
             <a href="#start" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i> Retour en haut</a>
         </div>
+    </footer>
 
     <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" defer></script>
     <script>
@@ -995,6 +1101,47 @@
                 message.textContent = 'Erreur lors de l’inscription. Réessayez.';
             }
         });
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const message = document.getElementById('contact-message');
+            message.classList.remove('hidden');
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    message.textContent = 'Message envoyé avec succès ! Nous vous répondrons bientôt.';
+                    message.classList.add('success');
+                    form.reset();
+                } else {
+                    message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
+                    message.classList.add('error');
+                }
+            } catch (e) {
+                message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
+                message.classList.add('error');
+            }
+        });
+
+        // Modal Control
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            const message = document.getElementById('contact-message');
+            message.classList.add('hidden');
+            message.classList.remove('success', 'error');
+            document.getElementById('contact-form').reset();
+        }
 
         // Simulator (Placeholder)
         function simulateReturns() {
