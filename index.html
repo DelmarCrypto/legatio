@@ -176,6 +176,12 @@
             font-size: 2.5rem;
         }
 
+        .section h3 {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
         /* Buttons */
         .cta-button {
             display: inline-block;
@@ -329,90 +335,192 @@
         }
 
         /* Styles pour la section NFTs */
-.section#nfts {
-    background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
-    padding: 3rem 0;
-}
+        .section#nfts {
+            background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+            padding: 3rem 0;
+        }
 
-.section-subtitle {
-    text-align: center;
-    color: var(--accent-gold);
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
 
-.nft-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
 
-.nft-card {
-    background: #1A1A1A;
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+        .nft-card {
+            background: #1A1A1A;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-.nft-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-}
+        .nft-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
 
-.nft-image {
-    max-width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
+        .nft-image {
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
 
-.nft-card h3 {
-    color: var(--accent-gold);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
+        .nft-card h3 {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-.nft-price {
-    color: var(--primary);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
+        .nft-price {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
 
-.nft-description {
-    color: var(--text);
-    font-size: 1rem;
-    line-height: 1.4;
-}
+        .nft-description {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
 
-.nft-stats {
-    text-align: center;
-    padding: 1rem;
-    background: rgba(26, 26, 26, 0.9);
-    border-radius: 12px;
-    max-width: 400px;
-    margin: 0 auto;
-}
+        .nft-stats {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
 
-.nft-stats p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-}
+        .nft-stats p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .nft-grid {
-        grid-template-columns: 1fr;
-    }
-    .nft-image {
-        max-width: 100%;
-        height: auto;
-    }
-}
-        .grid-item img:not([src]), .grid-item img[src=""] {
-            content: url('https://via.placeholder.com/150x150?text=Image+Indisponible');
+        /* FAQ Grid */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-card {
+            background: #1A1A1A;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .faq-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .faq-card i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .faq-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-card p {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-item {
+            background: #1A1A1A;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .grid-item i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .grid-item h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-item p {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* Advisors Grid */
+        .advisors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .advisor-card {
+            background: #1A1A1A;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .advisor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .advisor-card i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .advisor-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .advisor-card p {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.4;
         }
 
         /* Media Queries */
@@ -439,9 +547,22 @@
             .funds-list,
             .roadmap-timeline,
             .team-container,
-            .partner-logos-grid {
+            .partner-logos-grid,
+            .nft-grid,
+            .faq-grid,
+            .team-grid,
+            .advisors-grid {
                 grid-template-columns: 1fr;
             }
+
+            .nft-image {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        .grid-item img:not([src]), .grid-item img[src=""] {
+            content: url('https://via.placeholder.com/150x150?text=Image+Indisponible');
         }
     </style>
 </head>
@@ -462,6 +583,7 @@
                 <li><a href="#partners">Partenaires</a></li>
                 <li><a href="#investors">Investisseurs</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#equipe">Équipe</a></li>
             </ul>
         </nav>
     </header>
@@ -518,56 +640,54 @@
                 </div>
             </section>
 
-             <section class="section" id="nfts">
-    <div class="container">
-        <h2>NFTs Legatio Genesis</h2>
-        <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
-
-        <div class="nft-grid">
-            <div class="nft-card">
-                <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=City+Pod+NFT';">
-                <h3>City Pod</h3>
-                <p class="nft-price"><strong>0.015 ETH</strong></p>
-                <p class="nft-description">3 000 studios urbains modernes.</p>
-            </div>
-            <div class="nft-card">
-                <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Urban+Nest+NFT';">
-                <h3>Urban Nest</h3>
-                <p class="nft-price"><strong>0.03 ETH</strong></p>
-                <p class="nft-description">2 000 appartements modernes en centre-ville.</p>
-            </div>
-            <div class="nft-card">
-                <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Suburban+Haven+NFT';">
-                <h3>Suburban Haven</h3>
-                <p class="nft-price"><strong>0.05 ETH</strong></p>
-                <p class="nft-description">1 000 maisons familiales en banlieue.</p>
-            </div>
-            <div class="nft-card">
-                <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Azure+Prestige+NFT';">
-                <h3>Azure Prestige</h3>
-                <p class="nft-price"><strong>0.1 ETH</strong></p>
-                <p class="nft-description">500 villas méditerranéennes de luxe.</p>
-            </div>
-            <div class="nft-card">
-                <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Sky+Crown+NFT';">
-                <h3>Sky Crown</h3>
-                <p class="nft-price"><strong>0.25 ETH</strong></p>
-                <p class="nft-description">100 penthouses de luxe en centre-ville.</p>
-            </div>
-            <div class="nft-card">
-                <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Eternal+Estate+NFT';">
-                <h3>Eternal Estate</h3>
-                <p class="nft-price"><strong>1 ETH</strong></p>
-                <p class="nft-description">50 domaines exclusifs ultra-premium.</p>
-            </div>
-        </div>
-
-        <div class="nft-stats">
-            <p><strong>Levée prévue :</strong> 500K-850K € (280 ETH)</p>
-            <p><strong>Vente :</strong> Q2-Q3 2025</p>
-        </div>
-    </div>
-</section>
+            <section class="section" id="nfts">
+                <div class="container">
+                    <h2>NFTs Legatio Genesis</h2>
+                    <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
+                    <div class="nft-grid">
+                        <div class="nft-card">
+                            <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=City+Pod+NFT';">
+                            <h3>City Pod</h3>
+                            <p class="nft-price"><strong>0.015 ETH</strong></p>
+                            <p class="nft-description">3 000 studios urbains modernes.</p>
+                        </div>
+                        <div class="nft-card">
+                            <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Urban+Nest+NFT';">
+                            <h3>Urban Nest</h3>
+                            <p class="nft-price"><strong>0.03 ETH</strong></p>
+                            <p class="nft-description">2 000 appartements modernes en centre-ville.</p>
+                        </div>
+                        <div class="nft-card">
+                            <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Suburban+Haven+NFT';">
+                            <h3>Suburban Haven</h3>
+                            <p class="nft-price"><strong>0.05 ETH</strong></p>
+                            <p class="nft-description">1 000 maisons familiales en banlieue.</p>
+                        </div>
+                        <div class="nft-card">
+                            <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Azure+Prestige+NFT';">
+                            <h3>Azure Prestige</h3>
+                            <p class="nft-price"><strong>0.1 ETH</strong></p>
+                            <p class="nft-description">500 villas méditerranéennes de luxe.</p>
+                        </div>
+                        <div class="nft-card">
+                            <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Sky+Crown+NFT';">
+                            <h3>Sky Crown</h3>
+                            <p class="nft-price"><strong>0.25 ETH</strong></p>
+                            <p class="nft-description">100 penthouses de luxe en centre-ville.</p>
+                        </div>
+                        <div class="nft-card">
+                            <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Eternal+Estate+NFT';">
+                            <h3>Eternal Estate</h3>
+                            <p class="nft-price"><strong>1 ETH</strong></p>
+                            <p class="nft-description">50 domaines exclusifs ultra-premium.</p>
+                        </div>
+                    </div>
+                    <div class="nft-stats">
+                        <p><strong>Levée prévue :</strong> 500K-850K € (280 ETH)</p>
+                        <p><strong>Vente :</strong> Q2-Q3 2025</p>
+                    </div>
+                </div>
+            </section>
 
             <section class="section airdrop" id="airdrop">
                 <h2>Airdrop $LEG</h2>
@@ -703,41 +823,94 @@
                 </div>
                 <p class="investor-contact">Intéressé à investir ? <a href="mailto:invest@legatio.finance">Contactez-nous via notre mail ci dessous</a>.</p>
             </section>
-        </div>
-    </main>
 
-         <section class="section" id="faq">
+            <section class="section" id="faq">
                 <h2>Foire Aux Questions (FAQ)</h2>
-                <ul>
-                    <li>
-                        <strong><i class="fas fa-question-circle"></i> Qu’est-ce que la tokenisation des actifs réels (RWA) ?</strong><br>
-                        La tokenisation divise la propriété d’actifs immobiliers en tokens numériques sur la blockchain, permettant un investissement fractionné, une liquidité accrue et un accès dès 0.015 ETH.
-                    </li>
-                    <li>
-                        <strong><i class="fas fa-coins"></i> Comment puis-je acquérir des tokens $LEG ?</strong><br>
-                        Les tokens $LEG seront disponibles via une prévente (0,007 USD) et une vente publique (0,01 USD) en Q2-Q3 2025, suivies d’un airdrop en Q1 2026 pour les détenteurs de NFTs.
-                    </li>
-                    <li>
-                        <strong><i class="fas fa-image"></i> Que sont les NFTs Legatio Genesis ?</strong><br>
-                        Ce sont 6 650 NFTs immobiliers qui financent notre MVP, offrant des avantages comme l’accès au Club Legatio et des allocations de $LEG (50 à 5 000 tokens selon le type).
-                    </li>
-                    <li>
-                        <strong><i class="fas fa-shield-alt"></i> Legatio est-il sécurisé et conforme ?</strong><br>
-                        Oui, nous utilisons Arbitrum pour des transactions sécurisées, des audits par Hacken, un programme de bug bounty via Immunefi, et sommes conformes à la réglementation MiCA (UE).
-                    </li>
-                    <li>
-                        <strong><i class="fas fa-chart-line"></i> Quels rendements puis-je attendre ?</strong><br>
-                        Nos fonds thématiques visent des rendements annuels allant jusqu’à 8% (estimations), renforcés par des bonus de staking $LEG (1-10% selon le NFT).
-                    </li>
-                </ul>
+                <div class="faq-grid">
+                    <article class="faq-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Qu’est-ce que la tokenisation des actifs réels (RWA) ?</h3>
+                        <p>La tokenisation divise la propriété d’actifs immobiliers en tokens numériques sur la blockchain, permettant un investissement fractionné, une liquidité accrue et un accès dès 0.015 ETH.</p>
+                    </article>
+                    <article class="faq-card">
+                        <i class="fas fa-coins"></i>
+                        <h3>Comment puis-je acquérir des tokens $LEG ?</h3>
+                        <p>Les tokens $LEG seront disponibles via une prévente (0,007 USD) et une vente publique (0,01 USD) en Q2-Q3 2025, suivies d’un airdrop en Q1 2026 pour les détenteurs de NFTs.</p>
+                    </article>
+                    <article class="faq-card">
+                        <i class="fas fa-image"></i>
+                        <h3>Que sont les NFTs Legatio Genesis ?</h3>
+                        <p>Ce sont 6 650 NFTs immobiliers qui financent notre MVP, offrant des avantages comme l’accès au Club Legatio et des allocations de $LEG (50 à 5 000 tokens selon le type).</p>
+                    </article>
+                    <article class="faq-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Legatio est-il sécurisé et conforme ?</h3>
+                        <p>Oui, nous utilisons Arbitrum pour des transactions sécurisées, des audits par Hacken, un programme de bug bounty via Immunefi, et sommes conformes à la réglementation MiCA (UE).</p>
+                    </article>
+                    <article class="faq-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Quels rendements puis-je attendre ?</h3>
+                        <p>Nos fonds thématiques visent des rendements annuels allant jusqu’à 8% (estimations), renforcés par des bonus de staking $LEG (1-10% selon le NFT).</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="equipe">
+                <h2>Équipe</h2>
+                <h3>Équipe Principale – Legatio Inc.</h3>
+                <div class="team-grid">
+                    <div class="grid-item">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Rodrigues Delmar</h3>
+                        <p><strong>Fondateur & CEO</strong></p>
+                        <p>Plus de 7 ans dans le trading crypto et l’investissement DeFi. A transformé 30 000 $ en 2 000 000 $ en un seul trade. Visionnaire à l’origine du protocole de prêt Legatio basé sur les actifs réels. Basé à Miami.</p>
+                    </div>
+                    <div class="grid-item">
+                        <i class="fas fa-code"></i>
+                        <h3>Nathan Kohler</h3>
+                        <p><strong>CTO – Responsable Blockchain</strong></p>
+                        <p>Ancien contributeur chez Polygon Labs. Plus de 10 ans d’expérience dev, expert en Solidity, zkEVM, et intégration Arbitrum. Il dirige le développement du protocole.</p>
+                    </div>
+                    <div class="grid-item">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Camille Everett</h3>
+                        <p><strong>COO – Juridique & Conformité</strong></p>
+                        <p>Avocate américaine spécialisée en conformité Web3, enregistrement SEC et tokenisation des actifs réels. Ex-ConsenSys Legal.</p>
+                    </div>
+                    <div class="grid-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Leo Park</h3>
+                        <p><strong>Responsable Produit & Design</strong></p>
+                        <p>Designer UX/UI avec un background Web3. A collaboré avec Lido et Argent. Il conçoit l’interface utilisateur de l’application Legatio.</p>
+                    </div>
+                    <div class="grid-item">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Julian Mendez</h3>
+                        <p><strong>CMO – Marketing & Croissance</strong></p>
+                        <p>Ancien responsable croissance dans un protocole DeFi de premier plan. Expert en stratégies de lancement de tokens, publicité crypto et campagnes virales. Basé à Lisbonne.</p>
+                    </div>
+                </div>
+                <h3>Conseillers</h3>
+                <div class="advisors-grid">
+                    <div class="advisor-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Sophia Tanaka – Conseillère Tokenomics</h3>
+                        <p>Spécialiste en design de tokens pour des projets du top 50. Experte en théorie des jeux, modèles de staking et contrôle de l’inflation.</p>
+                    </div>
+                    <div class="advisor-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Michael Dupree – Conseiller Immobilier</h3>
+                        <p>15+ ans dans le développement immobilier au Texas et au Portugal. Accompagne la tokenisation d’actifs à revenus locatifs.</p>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
-        <!-- Modal for Contact Form -->
+    <!-- Modal for Contact Form -->
     <div class="modal" id="contactModal" role="dialog" aria-labelledby="contactModalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal()" aria-label="Fermer la fenêtre de contact">&times;</button>
+            <button class="close-button" onclick="closeModal()" aria-label="Fermer la fenêtre de contact">×</button>
             <h3 id="contactModalTitle">Nous Contacter</h3>
             <form action="mailto:legatio.finance@gmail.com" method="POST" enctype="text/plain">
                 <label for="name">Nom :</label>
