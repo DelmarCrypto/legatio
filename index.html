@@ -70,6 +70,7 @@
         :root {
             --primary: #FFD700; /* Gold for premium feel */
             --secondary: #00D4FF; /* Cyan for tech contrast */
+            --accent: #00FA9A; /* Vert clair pour harmonie analogue */
             --background: #0A0A0A; /* Deep black */
             --surface: #1A1A1A; /* Dark surface */
             --text: #FFFFFF; /* White text */
@@ -123,7 +124,7 @@
         }
 
         .navbar .logo-text:hover {
-            color: var(--secondary);
+            color: var(--accent);
         }
 
         .navbar ul {
@@ -141,7 +142,7 @@
 
         .navbar a:hover,
         .navbar a:focus {
-            color: var(--secondary);
+            color: var(--accent);
             outline: none;
         }
 
@@ -245,7 +246,7 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: rgba(255, 215, 0, 0.3);
+            background: rgba(0, 250, 154, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: width 0.4s ease, height 0.4s ease;
@@ -259,14 +260,14 @@
 
         .cta-button:hover,
         .cta-button:focus {
-            background: var(--hover);
+            background: var(--accent);
             color: var(--background);
             transform: translateY(-2px);
             outline: none;
         }
 
         .simulator-cta {
-            border: 2px solid var(--primary);
+            border: 2px solid var(--accent);
             padding: 1rem 2.5rem;
             font-size: 1.2rem;
         }
@@ -313,22 +314,46 @@
         .grid-item:hover,
         .advisor-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2); /* Bordure bleu cyan au survol */
         }
 
         .token-benefit i,
         .fund-item i,
         .faq-card i,
         .grid-item i,
-        .advisor-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
+        .advisor-card i,
+        .roadmap-item i {
+            font-size: 2.2rem; /* Taille réduite pour équilibre */
+            color: var(--primary); /* Icônes en jaune */
             margin-bottom: 1rem;
+            transition: transform 0.3s ease; /* Animation au survol */
+        }
+
+        .token-benefit i:hover,
+        .fund-item i:hover,
+        .faq-card i:hover,
+        .grid-item i:hover,
+        .advisor-card i:hover,
+        .roadmap-item i:hover {
+            transform: scale(1.1); /* Zoom subtil au survol */
+        }
+
+        .token-benefit h3,
+        .fund-item h3,
+        .partner-logo h3,
+        .faq-card h3,
+        .grid-item h3,
+        .advisor-card h3,
+        .roadmap-item h3 {
+            color: var(--secondary); /* Sous-titres en bleu */
+            font-size: 1.6rem; /* Taille augmentée pour lisibilité */
+            margin-bottom: 1rem;
+            text-shadow: 0 0 4px rgba(0, 212, 255, 0.3); /* Ombre pour contraste */
         }
 
         .roadmap-item {
             text-align: left;
-            border-left: 4px solid var(--secondary);
+            border-left: 4px solid var(--accent);
             border-radius: 0 12px 12px 0;
         }
 
@@ -390,7 +415,7 @@
 
         .nft-price {
             font-family: 'Space Mono', monospace;
-            color: var(--primary);
+            color: var(--accent);
             font-size: 1.2rem;
         }
 
@@ -411,7 +436,7 @@
 
         .social-links a:hover,
         .social-links a:focus {
-            color: var(--secondary);
+            color: var(--accent);
         }
 
         /* Modal */
@@ -535,6 +560,9 @@
             <section class="section" id="nfts">
                 <h2>NFTs Legatio Genesis</h2>
                 <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <button class="cta-button" onclick="connectMetaMask()">Connecter MetaMask</button>
+                </div>
                 <div class="nft-grid">
                     <div class="nft-card" data-tilt>
                         <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" loading="lazy">
@@ -832,6 +860,7 @@
                     <a href="#faq">FAQ</a> | 
                     <a href="https://delmarcrypto.github.io/legatio-finance/privacy.html" target="_blank" rel="noopener noreferrer">Confidentialité</a> | 
                     <a href="https://delmarcrypto.github.io/legatio-finance/terms.html" target="_blank" rel="noopener noreferrer">Conditions</a> | 
+                    <a href="#" onclick="openModal()" class="cta-button" aria-label="Ouvrir le formulaire de contact">Nous Contacter</a>
                 </div>
                 <p>© 2025 Legatio Finance. Tous droits réservés.</p>
                 <a href="#start" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i> Retour en haut</a>
