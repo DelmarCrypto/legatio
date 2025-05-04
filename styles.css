@@ -324,79 +324,79 @@ body::before {
 }
 
 .nft-card {
-    background: #1A1A1A;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid var(--accent-gold);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: #1A1A1A !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    border: 2px solid red !important; /* Temporary border to confirm styles apply */
+    transition: transform 0.3s, box-shadow 0.3s !important;
 }
 
 .nft-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3) !important;
 }
 
 .nft-card.rare {
-    border: 3px solid var(--primary);
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 230, 102, 0.05) 100%);
-    animation: sparkle 2s ease-in-out infinite;
+    border: 3px solid var(--primary) !important;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 230, 102, 0.05) 100%) !important;
+    animation: sparkle 2s ease-in-out infinite !important;
 }
 
 .nft-card.rare h3 {
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
 }
 
 .nft-card.rare .nft-price {
-    font-size: 1.3rem;
+    font-size: 1.3rem !important;
 }
 
 .nft-image {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    margin-bottom: 1rem !important;
+    transition: transform 0.3s ease !important;
 }
 
 .nft-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
 }
 
 .nft-price {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--primary);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', sans-serif !important;
+    color: var(--primary) !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
 }
 
 .nft-description {
-    margin-bottom: 0.5rem;
-    color: var(--text);
+    margin-bottom: 0.5rem !important;
+    color: var(--text) !important;
 }
 
 .nft-availability {
-    color: var(--accent-gold);
-    font-size: 0.9rem;
+    color: var(--accent-gold) !important;
+    font-size: 0.9rem !important;
 }
 
 .buy-nft-button {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    background: var(--button-bg);
-    color: var(--button-text);
-    border-radius: 25px;
-    font-weight: 500;
-    transition: background 0.3s, transform 0.3s;
+    width: 100% !important;
+    margin-top: 1rem !important;
+    padding: 0.8rem !important;
+    background: var(--button-bg) !important;
+    color: var(--button-text) !important;
+    border-radius: 25px !important;
+    font-weight: 500 !important;
+    transition: background 0.3s, transform 0.3s !important;
 }
 
 .buy-nft-button:hover,
 .buy-nft-button:focus {
-    background: var(--hover-dark);
-    transform: scale(1.05);
+    background: var(--hover-dark) !important;
+    transform: scale(1.05) !important;
 }
 
 /* Footer */
@@ -502,15 +502,15 @@ body::before {
     }
 
     .nft-image {
-        max-height: 250px;
+        max-height: 250px !important;
     }
 
     .nft-card.rare h3 {
-        font-size: 1.3rem;
+        font-size: 1.3rem !important;
     }
 
     .nft-card.rare .nft-price {
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
     }
 }
 
@@ -535,14 +535,14 @@ body::before {
     }
 
     .nft-image {
-        max-height: 200px;
+        max-height: 200px !important;
     }
 
     .nft-card.rare h3 {
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
     }
 
     .nft-card.rare .nft-price {
-        font-size: 1.1rem;
+        font-size: 1.1rem !important;
     }
 }
