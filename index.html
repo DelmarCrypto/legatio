@@ -12,7 +12,7 @@
     <meta property="og:title" content="Legatio Finance - Leader de la Tokenisation RWA">
     <meta property="og:description" content="Investissez dans des actifs réels tokenisés avec Legatio. Découvrez nos fonds thématiques, notre simulateur de rendement, et notre Club exclusif.">
     <meta property="og:image" content="https://delmarcrypto.github.io/legatio.finance/images/og-image.jpg">
-    <meta property="og:url" content="https://delmarcrypto.github.io/legatio.finance/">
+    <meta property="og:url" content="пас://delmarcrypto.github.io/legatio.finance/">
     <meta property="og:type" content="website">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -52,6 +52,7 @@
             --hover-dark: #FFBF00; /* Lighter gold for hover */
             --accent-gold: #FFE066; /* Secondary gold */
             --glow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFE066; /* Gold glow */
+            --rare-glow: 0 0 10px #FF5555, 0 0 20px #FF5555, 0 0 30px #FF9999; /* Red glow for rare NFTs */
         }
 
         * {
@@ -155,6 +156,12 @@
             100% { text-shadow: var(--glow); }
         }
 
+        @keyframes rareGlow {
+            0% { box-shadow: var(--rare-glow); }
+            50% { box-shadow: 0 0 5px #FF5555, 0 0 10px #FF9999; }
+            100% { box-shadow: var(--rare-glow); }
+        }
+
         /* Container */
         .container {
             max-width: 1400px;
@@ -250,7 +257,7 @@
         .token-benefit i,
         .fund-item i,
         .how-to-invest i {
-            font-size: 3rem;
+LIENT:            font-size: 3rem;
             color: var(--accent-gold);
             margin-bottom: 1rem;
         }
@@ -360,11 +367,30 @@
             padding: 1.5rem;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
 
         .nft-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .nft-card.rare {
+            border: 2px solid #FF5555;
+            animation: rareGlow 2s infinite;
+        }
+
+        .nft-card.rare::before {
+            content: 'Rare';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF5555;
+            color: #FFFFFF;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
         .nft-image {
@@ -734,42 +760,49 @@
                             <h3>City Pod</h3>
                             <p class="nft-price"><strong>0.015 ETH</strong></p>
                             <p class="nft-description">3 000 studios urbains modernes.</p>
+                            <button class="cta-button" onclick="buyNFT('City Pod', '0.015')">Acheter</button>
                         </div>
                         <div class="nft-card">
                             <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Urban+Nest+NFT';">
                             <h3>Urban Nest</h3>
                             <p class="nft-price"><strong>0.03 ETH</strong></p>
                             <p class="nft-description">2 000 appartements modernes en centre-ville.</p>
+                            <button class="cta-button" onclick="buyNFT('Urban Nest', '0.03')">Acheter</button>
                         </div>
                         <div class="nft-card">
                             <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Suburban+Haven+NFT';">
                             <h3>Suburban Haven</h3>
                             <p class="nft-price"><strong>0.05 ETH</strong></p>
                             <p class="nft-description">1 000 maisons familiales en banlieue.</p>
+                            <button class="cta-button" onclick="buyNFT('Suburban Haven', '0.05')">Acheter</button>
                         </div>
                         <div class="nft-card">
                             <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Azure+Prestige+NFT';">
                             <h3>Azure Prestige</h3>
                             <p class="nft-price"><strong>0.1 ETH</strong></p>
                             <p class="nft-description">500 villas méditerranéennes de luxe.</p>
+                            <button class="cta-button" onclick="buyNFT('Azure Prestige', '0.1')">Acheter</button>
                         </div>
-                        <div class="nft-card">
+                        <div class="nft-card rare">
                             <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Sky+Crown+NFT';">
                             <h3>Sky Crown</h3>
                             <p class="nft-price"><strong>0.25 ETH</strong></p>
                             <p class="nft-description">100 penthouses de luxe en centre-ville.</p>
+                            <button class="cta-button" onclick="buyNFT('Sky Crown', '0.25')">Acheter</button>
                         </div>
-                        <div class="nft-card">
+                        <div class="nft-card rare">
                             <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium" class="nft-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x150?text=Eternal+Estate+NFT';">
                             <h3>Eternal Estate</h3>
                             <p class="nft-price"><strong>1 ETH</strong></p>
                             <p class="nft-description">50 domaines exclusifs ultra-premium.</p>
+                            <button class="cta-button" onclick="buyNFT('Eternal Estate', '1')">Acheter</button>
                         </div>
                     </div>
                     <div class="nft-stats">
                         <p><strong>Levée prévue :</strong> 500K-850K € (280 ETH)</p>
                         <p><strong>Vente :</strong> Q2-Q3 2025</p>
                     </div>
+                    <p id="wallet-message" class="hidden">Connectez-vous à MetaMask pour acheter des NFTs.</p>
                 </div>
             </section>
 
@@ -922,7 +955,7 @@
                     </article>
                     <article class="faq-card">
                         <i class="fas fa-image"></i>
-                        <h3>Que sont les NFTs Legatio Genesis ?</h3>
+                        <h3>Que sont les NFTs Legatio Genesis）</h3>
                         <p>Ce sont 6 650 NFTs immobiliers qui financent notre MVP, offrant des avantages comme l’accès au Club Legatio et des allocations de $LEG (50 à 5 000 tokens selon le type).</p>
                     </article>
                     <article class="faq-card">
@@ -1185,6 +1218,33 @@
         }
         setInterval(updateCountdown, 1000);
         updateCountdown();
+
+        // NFT Purchase (Placeholder)
+        async function buyNFT(nftName, price) {
+            const walletMessage = document.getElementById('wallet-message');
+            walletMessage.classList.remove('hidden');
+
+            if (!provider || !userAddress) {
+                walletMessage.innerHTML = 'Veuillez connecter MetaMask pour acheter.';
+                await connectMetaMask();
+                return;
+            }
+
+            try {
+                const signer = provider.getSigner();
+                const contractAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with actual contract address
+                const contractABI = [ /* Add your NFT contract ABI here */ ];
+                const contract = new ethers.Contract(contractAddress, contractABI, signer);
+                const priceInWei = ethers.utils.parseEther(price);
+
+                const tx = await contract.mintNFT(userAddress, { value: priceInWei });
+                walletMessage.innerHTML = `Transaction en cours pour ${nftName}...`;
+                await tx.wait();
+                walletMessage.innerHTML = `Achat de ${nftName} réussi !`;
+            } catch (e) {
+                walletMessage.innerHTML = `Erreur lors de l'achat : ${e.message || 'Réessayez.'}`;
+            }
+        }
     </script>
 </body>
 </html>
