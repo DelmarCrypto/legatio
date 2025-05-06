@@ -895,185 +895,187 @@ le compteur de l'airdrop ne decompte toujours pas : <!DOCTYPE html>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script>
         <script>
             // Hamburger Menu
-            function toggleMenu() {
-                const menu = document.querySelector('.navbar ul');
-                menu.classList.toggle('active');
+function toggleMenu() {
+    const menu = document.querySelector('.navbar ul');
+    if (menu) menu.classList.toggle('active');
+}
+
+// Particle Animation
+const canvas = document.getElementById('particle-canvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = 400;
+    const particles = [];
+    const particleCount = 50;
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.size > 0.2) this.size -= 0.01;
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(255, 215, 0, 0.5)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle, index) => {
+            particle.update();
+            particle.draw();
+            if (particle.size <= 0.2) {
+                particles.splice(index, 1);
+                particles.push(new Particle());
             }
+        });
+        requestAnimationFrame(animate);
+    }
 
-            // Particle Animation
-            const canvas = document.getElementById('particle-canvas');
-            if (canvas) {
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = 400;
-                const particles = [];
-                const particleCount = 50;
+    init();
+    animate();
+}
 
-                class Particle {
-                    constructor() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.size = Math.random() * 2 + 1;
-                        this.speedX = Math.random() * 0.5 - 0.25;
-                        this.speedY = Math.random() * 0.5 - 0.25;
-                    }
-                    update() {
-                        this.x += this.speedX;
-                        this.y += this.speedY;
-                        if (this.size > 0.2) this.size -= 0.01;
-                    }
-                    draw() {
-                        ctx.fillStyle = 'rgba(255, 215, 0, 0.5)';
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
+// MetaMask Connection
+let provider, userAddress;
+async function connectMetaMask() {
+    const walletMessage = document.getElementById('wallet-message');
+    if (!walletMessage) {
+        console.error("L'élément #wallet-message n'existe pas.");
+        return;
+    }
 
-                function init() {
-                    for (let i = 0; i < particleCount; i++) {
-                        particles.push(new Particle());
-                    }
-                }
+    if (!window.ethereum) {
+        walletMessage.classList.remove('hidden');
+        walletMessage.innerHTML = 'MetaMask requis. <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer">Téléchargez MetaMask</a>.';
+        return;
+    }
+    try {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        userAddress = accounts[0];
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        if (await window.ethereum.request({ method: 'eth_chainId' }) !== '0xa4b1') {
+            await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0xa4b1' }] });
+            walletMessage.classList.remove('hidden');
+            walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+        } else {
+            walletMessage.classList.remove('hidden');
+            walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+        }
+    } catch (e) {
+        walletMessage.classList.remove('hidden');
+        walletMessage.innerHTML = e.message || 'Erreur de connexion.';
+    }
+}
 
-                function animate() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach((particle, index) => {
-                        particle.update();
-                        particle.draw();
-                        if (particle.size <= 0.2) {
-                            particles.splice(index, 1);
-                            particles.push(new Particle());
-                        }
-                    });
-                    requestAnimationFrame(animate);
-                }
+window.addEventListener('load', () => {
+    const walletMessage = document.getElementById('wallet-message');
+    if (!walletMessage) {
+        console.error("L'élément #wallet-message n'existe pas.");
+        return;
+    }
 
-                init();
-                animate();
+    if (window.ethereum) {
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        provider.listAccounts().then(accounts => {
+            if (accounts.length > 0) {
+                userAddress = accounts[0];
+                walletMessage.classList.remove('hidden');
+                walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+            } else {
+                walletMessage.classList.remove('hidden');
             }
+        });
+    } else {
+        walletMessage.classList.remove('hidden');
+    }
+});
 
-            // MetaMask Connection
-            let provider, userAddress;
-            async function connectMetaMask() {
-                const walletMessage = document.getElementById('wallet-message');
-                if (!window.ethereum) {
-                    walletMessage.classList.remove('hidden');
-                    walletMessage.innerHTML = 'MetaMask requis. <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer">Téléchargez MetaMask</a>.';
-                    return;
-                }
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    userAddress = accounts[0];
-                    provider = new ethers.providers.Web3Provider(window.ethereum);
-                    if (await window.ethereum.request({ method: 'eth_chainId' }) !== '0xa4b1') {
-                        await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0xa4b1' }] });
-                        walletMessage.classList.remove('hidden');
-                        walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
-                    } else {
-                        walletMessage.classList.remove('hidden');
-                        walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
-                    }
-                } catch (e) {
-                    walletMessage.classList.remove('hidden');
-                    walletMessage.innerHTML = e.message || 'Erreur de connexion.';
-                }
-            }
+// Modal Control
+function openModal() {
+    const modal = document.getElementById('contactModal');
+    if (modal) modal.style.display = 'flex';
+}
 
-            window.addEventListener('load', () => {
-                if (window.ethereum) {
-                    provider = new ethers.providers.Web3Provider(window.ethereum);
-                    provider.listAccounts().then(accounts => {
-                        if (accounts.length > 0) {
-                            userAddress = accounts[0];
-                            document.getElementById('wallet-message').classList.remove('hidden');
-                            document.getElementById('wallet-message').innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
-                        } else {
-                            document.getElementById('wallet-message').classList.remove('hidden');
-                        }
-                    });
-                } else {
-                    document.getElementById('wallet-message').classList.remove('hidden');
-                }
-            });
+function closeModal() {
+    const modal = document.getElementById('contactModal');
+    const message = document.getElementById('contact-message');
+    const form = document.getElementById('contact-form');
+    if (modal) modal.style.display = 'none';
+    if (message) {
+        message.classList.add('hidden');
+        message.classList.remove('success', 'error');
+    }
+    if (form) form.reset();
+}
 
-            // Airdrop Form
-            document.getElementById('airdrop-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                const message = document.getElementById('airdrop-message');
-                message.classList.remove('hidden');
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        message.textContent = 'Inscription réussie ! Éligible pour l’airdrop $LEG en Q1 2026.';
-                        form.reset();
-                    } else {
-                        message.textContent = 'Erreur lors de l’inscription. Réessayez.';
-                    }
-                } catch (e) {
-                    message.textContent = 'Erreur lors de l’inscription. Réessayez.';
-                }
-            });
+// Simulator
+function simulateReturns() {
+    const amount = document.getElementById('investment-amount').value;
+    const fundType = document.getElementById('fund-type').value;
+    const result = document.getElementById('simulator-result');
+    if (!result) {
+        console.error("L'élément #simulator-result n'existe pas.");
+        return;
+    }
 
-            // Contact Form
-            document.getElementById('contact-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                const message = document.getElementById('contact-message');
-                message.classList.remove('hidden');
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        message.textContent = 'Message envoyé avec succès ! Nous vous répondrons bientôt.';
-                        message.classList.add('success');
-                        form.reset();
-                    } else {
-                        message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
-                        message.classList.add('error');
-                    }
-                } catch (e) {
-                    message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
-                    message.classList.add('error');
-                }
-            });
+    result.classList.remove('hidden');
+    if (!amount || amount <= 0) {
+        result.textContent = 'Veuillez entrer un montant valide.';
+        return;
+    }
+    const yields = { urban: 0.08, gold: 0.05, social: 0.06 };
+    const projected = (amount * yields[fundType]).toFixed(2);
+    result.textContent = `Rendement annuel estimé : $${projected} pour ${fundType}.`;
+}
 
-            // Modal Control
-            function openModal() {
-                document.getElementById('contactModal').style.display = 'flex';
-            }
+// NFT Purchase
+async function buyNFT(nftName, price) {
+    const walletMessage = document.getElementById('wallet-message');
+    if (!walletMessage) {
+        console.error("L'élément #wallet-message n'existe pas.");
+        return;
+    }
 
-            function closeModal() {
-                document.getElementById('contactModal').style.display = 'none';
-                const message = document.getElementById('contact-message');
-                message.classList.add('hidden');
-                message.classList.remove('success', 'error');
-                document.getElementById('contact-form').reset();
-            }
+    walletMessage.classList.remove('hidden');
+    if (!provider || !userAddress) {
+        walletMessage.innerHTML = 'Veuillez connecter MetaMask pour acheter.';
+        await connectMetaMask();
+        return;
+    }
+    try {
+        const signer = provider.getSigner();
+        const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+        const contractABI = [];
+        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+        const priceInWei = ethers.utils.parseEther(price);
+        const tx = await contract.mintNFT(userAddress, { value: priceInWei });
+        walletMessage.innerHTML = `Transaction en cours pour ${nftName}...`;
+        await tx.wait();
+        walletMessage.innerHTML = `Achat de ${nftName} réussi !`;
+    } catch (e) {
+        walletMessage.innerHTML = `Erreur lors de l'achat : ${e.message || 'Réessayez.'}`;
+    }
+}
 
-            // Simulator
-            function simulateReturns() {
-                const amount = document.getElementById('investment-amount').value;
-                const fundType = document.getElementById('fund-type').value;
-                const result = document.getElementById('simulator-result');
-                result.classList.remove('hidden');
-                if (!amount || amount <= 0) {
-                    result.textContent = 'Veuillez entrer un montant valide.';
-                    return;
-                }
-                const yields = { urban: 0.08, gold: 0.05, social: 0.06 };
-                const projected = (amount * yields[fundType]).toFixed(2);
-                result.textContent = `Rendement annuel estimé : $${projected} pour ${fundType}.`;
-            }
-
+// Airdrop Countdown and Forms
 document.addEventListener('DOMContentLoaded', () => {
     // Countdown Timer for Airdrop
     const snapshotDate = new Date('2025-09-30T23:59:59Z').getTime(); // UTC pour cohérence
@@ -1164,30 +1166,43 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error("L'élément #lottery-form n'existe pas dans le DOM.");
     }
-});
-            // NFT Purchase
-            async function buyNFT(nftName, price) {
-                const walletMessage = document.getElementById('wallet-message');
-                walletMessage.classList.remove('hidden');
-                if (!provider || !userAddress) {
-                    walletMessage.innerHTML = 'Veuillez connecter MetaMask pour acheter.';
-                    await connectMetaMask();
-                    return;
-                }
-                try {
-                    const signer = provider.getSigner();
-                    const contractAddress = 'YOUR_CONTRACT_ADDRESS';
-                    const contractABI = [];
-                    const contract = new ethers.Contract(contractAddress, contractABI, signer);
-                    const priceInWei = ethers.utils.parseEther(price);
-                    const tx = await contract.mintNFT(userAddress, { value: priceInWei });
-                    walletMessage.innerHTML = `Transaction en cours pour ${nftName}...`;
-                    await tx.wait();
-                    walletMessage.innerHTML = `Achat de ${nftName} réussi !`;
-                } catch (e) {
-                    walletMessage.innerHTML = `Erreur lors de l'achat : ${e.message || 'Réessayez.'}`;
-                }
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const message = document.getElementById('contact-message');
+            if (!message) {
+                console.error("L'élément #contact-message n'existe pas.");
+                return;
             }
+
+            message.classList.remove('hidden');
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' },
+                });
+                if (response.ok) {
+                    message.textContent = 'Message envoyé avec succès ! Nous vous répondrons bientôt.';
+                    message.classList.add('success');
+                    form.reset();
+                } else {
+                    message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
+                    message.classList.add('error');
+                }
+            } catch (e) {
+                message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
+                message.classList.add('error');
+            }
+        });
+    } else {
+        console.error("L'élément #contact-form n'existe pas dans le DOM.");
+    }
+});
         </script>
     </body>
 </html>
