@@ -558,67 +558,68 @@
             </section>
 
           <section class="section" id="nfts">
-    <h2>NFTs Legatio Genesis</h2>
-    <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
-    <p>Pour précommander un NFT, envoyez le montant en ETH à l'adresse Arbitrum suivante : <strong>0x732F2d70Aa758a2D60fD81CD2ac14B6E92Ec5F44</strong>. Ensuite, remplissez le formulaire pour confirmer votre précommande.</p>
-    <div style="text-align: center; margin-bottom: 1.5rem;">
-        <button class="cta-button" onclick="connectMetaMask()">Connecter MetaMask</button>
-    </div>
-    <div class="nft-grid">
-        <div class="nft-card" data-tilt>
-            <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" loading="lazy">
-            <h3>City Pod</h3>
-            <p class="nft-price"><strong>0.015 ETH</strong></p>
-            <p class="nft-description">3 000 studios urbains modernes.</p>
-            <button class="cta-button" onclick="openPreorderModal('City Pod', '0.015', 1)">Précommander</button>
-            <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-        </div>
-        <div class="nft-card" data-tilt>
-            <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville" class="nft-image" loading="lazy">
-            <h3>Urban Nest</h3>
-            <p class="nft-price"><strong>0.03 ETH</strong></p>
-            <p class="nft-description">2 000 appartements modernes en centre-ville.</p>
-            <button class="cta-button" onclick="openPreorderModal('Urban Nest', '0.03', 2)">Précommander</button>
-            <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-        </div>
-        <div class="nft-card" data-tilt>
-            <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue" class="nft-image" loading="lazy">
-            <h3>Suburban Haven</h3>
-            <p class="nft-price"><strong>0.05 ETH</strong></p>
-            <p class="nft-description">1 000 maisons familiales en banlieue.</p>
-            <button class="cta-button" onclick="openPreorderModal('Suburban Haven', '0.05', 3)">Précommander</button>
-            <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-        </div>
-        <div class="nft-card" data-tilt>
-            <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe" class="nft-image" loading="lazy">
-            <h3>Azure Prestige</h3>
-            <p class="nft-price"><strong>0.1 ETH</strong></p>
-            <p class="nft-description">500 villas méditerranéennes de luxe.</p>
-            <button class="cta-button" onclick="openPreorderModal('Azure Prestige', '0.1', 4)">Précommander</button>
-            <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-        </div>
-        <div class="nft-card rare" data-tilt>
-            <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville" class="nft-image" loading="lazy">
-            <h3>Sky Crown</h3>
-            <p class="nft-price"><strong>0.25 ETH</strong></p>
-            <p class="nft-description">100 penthouses de luxe en centre-ville.</p>
-            <button class="cta-button" onclick="openPreorderModal('Sky Crown', '0.25', 5)">Précommander</button>
-            <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-        </div>
-        <div class="nft-card rare" data-tilt>
-            <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium" class="nft-image" loading="lazy">
-            <h3>Eternal Estate</h3>
-            <p class="nft-price"><strong>1 ETH</strong></p>
-            <p class="nft-description">50 domaines exclusifs ultra-premium.</p>
-            <button class="cta-button" onclick="openPreorderModal('Eternal Estate', '1', 6)">Précommander</button>
-            <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-        </div>
-    </div>
-    <div class="nft-stats">
-        <p><strong>Levée prévue :</strong> 500K-850K € (280 ETH)</p>
-        <p><strong>Vente :</strong> Q2-Q3 2025</p>
-    </div>
-</section>
+                <h2>NFTs Legatio Genesis</h2>
+                <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
+                <p>Pour précommander un NFT, envoyez le montant en ETH à l'adresse Arbitrum suivante : <strong>0x732F2d70Aa758a2D60fD81CD2ac14B6E92Ec5F44</strong>. Ensuite, remplissez le formulaire pour confirmer votre précommande.</p>
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <button class="cta-button" onclick="connectMetaMask()">Connecter MetaMask</button>
+                    <p id="wallet-message" class="form-message hidden"></p>
+                </div>
+                <div class="nft-grid">
+                    <div class="nft-card" data-tilt>
+                        <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" loading="lazy">
+                        <h3>City Pod</h3>
+                        <p class="nft-price"><strong>0.015 ETH</strong></p>
+                        <p class="nft-description">3 000 studios urbains modernes.</p>
+                        <button class="cta-button" onclick="preorderNFT('City Pod', '0.015')">Précommander</button>
+                        <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
+                    </div>
+                    <div class="nft-card" data-tilt>
+                        <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville" class="nft-image" loading="lazy">
+                        <h3>Urban Nest</h3>
+                        <p class="nft-price"><strong>0.03 ETH</strong></p>
+                        <p class="nft-description">2 000 appartements modernes en centre-ville.</p>
+                        <button class="cta-button" onclick="preorderNFT('Urban Nest', '0.03')">Précommander</button>
+                        <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
+                    </div>
+                    <div class="nft-card" data-tilt>
+                        <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue" class="nft-image" loading="lazy">
+                        <h3>Suburban Haven</h3>
+                        <p class="nft-price"><strong>0.05 ETH</strong></p>
+                        <p class="nft-description">1 000 maisons familiales en banlieue.</p>
+                        <button class="cta-button" onclick="preorderNFT('Suburban Haven', '0.05')">Précommander</button>
+                        <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
+                    </div>
+                    <div class="nft-card" data-tilt>
+                        <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe" class="nft-image" loading="lazy">
+                        <h3>Azure Prestige</h3>
+                        <p class="nft-price"><strong>0.1 ETH</strong></p>
+                        <p class="nft-description">500 villas méditerranéennes de luxe.</p>
+                        <button class="cta-button" onclick="preorderNFT('Azure Prestige', '0.1')">Précommander</button>
+                        <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
+                    </div>
+                    <div class="nft-card rare" data-tilt>
+                        <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville" class="nft-image" loading="lazy">
+                        <h3>Sky Crown</h3>
+                        <p class="nft-price"><strong>0.25 ETH</strong></p>
+                        <p class="nft-description">100 penthouses de luxe en centre-ville.</p>
+                        <button class="cta-button" onclick="preorderNFT('Sky Crown', '0.25')">Précommander</button>
+                        <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
+                    </div>
+                    <div class="nft-card rare" data-tilt>
+                        <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium" class="nft-image" loading="lazy">
+                        <h3>Eternal Estate</h3>
+                        <p class="nft-price"><strong>1 ETH</strong></p>
+                        <p class="nft-description">50 domaines exclusifs ultra refor-premium.</p>
+                        <button class="cta-button" onclick="preorderNFT('Eternal Estate', '1')">Précommander</button>
+                        <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
+                    </div>
+                </div>
+                <div class="nft-stats">
+                    <p><strong>Levée prévue :</strong> 500K-850K € (280 ETH)</p>
+                    <p><strong>Vente :</strong> Q2-Q3 2025</p>
+                </div>
+            </section>
 
 <!-- Modale pour le formulaire de précommande -->
 <div class="modal" id="preorderModal" role="dialog" aria-labelledby="preorderModalTitle" aria-hidden="true">
