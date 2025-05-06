@@ -1074,14 +1074,8 @@ le compteur de l'airdrop ne decompte toujours pas : <!DOCTYPE html>
                 result.textContent = `Rendement annuel estimé : $${projected} pour ${fundType}.`;
             }
 
-// Supprimez ceci du script existant :
-// const snapshotDate = new Date('2025-09-30T23:59:59Z');
-// function updateCountdown() { ... }
-// updateCountdown();
-// setInterval(updateCountdown, 1000);
-
-// Remplacez le bloc dans DOMContentLoaded par ceci :
 document.addEventListener('DOMContentLoaded', () => {
+    // Countdown Timer for Airdrop
     const snapshotDate = new Date('2025-09-30T23:59:59Z').getTime(); // UTC pour cohérence
     const countdownTimer = document.getElementById('countdown-timer');
 
@@ -1105,56 +1099,72 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }, 1000);
-});
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
 
-    // Initialize countdown and update every second
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+        if (daysElement && hoursElement && minutesElement && secondsElement) {
+            daysElement.textContent = String(days).padStart(2, '0');
+            hoursElement.textContent = String(hours).padStart(2, '0');
+            minutesElement.textContent = String(minutes).padStart(2, '0');
+            secondsElement.textContent = String(seconds).padStart(2, '0');
+        } else {
+            console.error("Un ou plusieurs éléments du compteur (days, hours, minutes, seconds) sont manquants.");
+            clearInterval(updateCountdown);
+        }
+    }, 1000);
 
     // Lottery Form Submission
-    document.getElementById('lottery-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const message = document.getElementById('lottery-message');
-        message.classList.remove('hidden');
+    const lotteryForm = document.getElementById('lottery-form');
+    if (lotteryForm) {
+        lotteryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const message = document.getElementById('lottery-message');
+            if (!message) {
+                console.error("L'élément #lottery-message n'existe pas.");
+                return;
+            }
 
-        // Basic duplicate submission check using localStorage
-        const email = form.querySelector('#lottery-email').value;
-        if (localStorage.getItem(`lottery_submitted_${email}`)) {
-            message.textContent = 'Vous êtes déjà inscrit à la loterie !';
-            message.classList.add('error');
-            message.classList.remove('success');
-            return;
-        }
+            message.classList.remove('hidden');
 
-        try {
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' },
-            });
-            if (response.ok) {
-                message.textContent = 'Inscription à la loterie réussie ! Vous êtes éligible pour l’airdrop $LEG et la loterie.';
-                message.classList.add('success');
-                message.classList.remove('error');
-                localStorage.setItem(`lottery_submitted_${email}`, 'true');
-                form.reset();
-            } else {
+            // Basic duplicate submission check using localStorage
+            const email = form.querySelector('#lottery-email').value;
+            if (localStorage.getItem(`lottery_submitted_${email}`)) {
+                message.textContent = 'Vous êtes déjà inscrit à la loterie !';
+                message.classList.add('error');
+                message.classList.remove('success');
+                return;
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' },
+                });
+                if (response.ok) {
+                    message.textContent = 'Inscription à la loterie réussie ! Vous êtes éligible pour l’airdrop $LEG et la loterie.';
+                    message.classList.add('success');
+                    message.classList.remove('error');
+                    localStorage.setItem(`lottery_submitted_${email}`, 'true');
+                    form.reset();
+                } else {
+                    message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+                    message.classList.add('error');
+                    message.classList.remove('success');
+                }
+            } catch (e) {
                 message.textContent = 'Erreur lors de l’inscription. Réessayez.';
                 message.classList.add('error');
                 message.classList.remove('success');
             }
-        } catch (e) {
-            message.textContent = 'Erreur lors de l’inscription. Réessayez.';
-            message.classList.add('error');
-            message.classList.remove('success');
-        }
-    });
+        });
+    } else {
+        console.error("L'élément #lottery-form n'existe pas dans le DOM.");
+    }
+});
 
             document.addEventListener('DOMContentLoaded', () => {
     const snapshotDate = new Date('2025-09-30T23:59:59').getTime();
