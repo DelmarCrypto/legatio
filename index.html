@@ -615,52 +615,56 @@
                 </div>
             </section>
 
-<!-- Modale pour le formulaire de précommande -->
-<div class="modal" id="preorderModal" role="dialog" aria-labelledby="preorderModalTitle" aria-hidden="true">
-    <div class="modal-content">
-        <button class="close-button" onclick="closePreorderModal()" aria-label="Fermer la fenêtre de précommande">×</button>
-        <h3 id="preorderModalTitle">Confirmer votre achat NFT pour le recevoir et être éligible au aidrop du token Leg</h3>
-        <p id="preorder-instructions"></p>
-        <form id="preorder-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
-            <label for="email">Votre email :</label>
-            <input type="email" id="email" name="email" placeholder="Entrez votre email" required aria-label="Email pour précommande">
-            <label for="wallet">Adresse Arbitrum :</label>
-            <input type="text" id="wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
-            <label for="nft-type">Type de NFT :</label>
-            <input type="text" id="nft-type" name="nft-type" readonly aria-label="Type de NFT sélectionné">
-            <input type="hidden" name="_subject" value="Précommande NFT Legatio Finance">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
-            <button type="submit" class="cta-button">Confirmer la précommande</button>
-        </form>
-        <p id="preorder-message" class="form-message hidden"></p>
-    </div>
-</div>
-
-            <section class="section airdrop" id="airdrop">
-                <h2>Airdrop $LEG</h2>
-                <p>Recevez des tokens $LEG en Q1 2026 pour participer à la gouvernance et au staking de notre écosystème.</p>
-                <div class="countdown">
-                    <h3>Temps restant avant le snapshot (Q3 2025) :</h3>
-                    <div id="countdown-timer" class="countdown-timer">
-                        <span id="days">00</span> jours
-                        <span id="hours">00</span> heures
-                        <span id="minutes">00</span> minutes
-                        <span id="seconds">00</span> secondes
-                    </div>
-                </div>
-                <form id="airdrop-form" class="airdrop-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
+        <!-- Modale pour le formulaire de précommande -->
+        <div class="modal" id="preorderModal" role="dialog" aria-labelledby="preorderModalTitle" aria-hidden="true">
+            <div class="modal-content">
+                <button class="close-button" onclick="closePreorderModal()" aria-label="Fermer la fenêtre de précommande">×</button>
+                <h3 id="preorderModalTitle">Confirmer votre achat NFT</h3>
+                <p id="preorder-instructions"></p>
+                <form id="preorder-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
                     <label for="email">Votre email :</label>
-                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required aria-label="Email pour inscription à l'airdrop">
+                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required aria-label="Email pour précommande">
                     <label for="wallet">Adresse Arbitrum :</label>
                     <input type="text" id="wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
-                    <input type="hidden" name="_subject" value="Inscription à l'Airdrop de Legatio Finance">
+                    <label for="nft-type">Type de NFT :</label>
+                    <input type="text" id="nft-type" name="nft-type" readonly aria-label="Type de NFT sélectionné">
+                    <label for="transaction-hash">Hash de la transaction :</label>
+                    <input type="text" id="transaction-hash" name="transaction-hash" placeholder="Entrez le hash de la transaction" required aria-label="Hash de la transaction">
+                    <input type="hidden" name="_subject" value="Précommande NFT Legatio Finance">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
-                    <button type="submit" class="cta-button">S’inscrire</button>
+                    <button type="submit" class="cta-button">Confirmer la précommande</button>
                 </form>
-                <p id="airdrop-message" class="hidden"></p>
-            </section>
+                <p id="preorder-message" class="form-message hidden"></p>
+            </div>
+        </div>
+
+        <section class="section airdrop" id="airdrop">
+            <h2>Loterie Airdrop $LEG</h2>
+            <p>Inscrivez-vous à notre loterie pour tenter de gagner <strong>10 000 $LEG</strong> ! Tous les participants sont éligibles à l'airdrop standard $LEG en Q1 2026, mais un gagnant, tiré au sort après le snapshot (Q3 2025), recevra ce bonus exclusif pour participer à la gouvernance et au staking.</p>
+            <div class="countdown">
+                <h3>Temps restant avant le snapshot de la loterie (Q3 2025) :</h3>
+                <div id="countdown-timer" class="countdown-timer">
+                    <span id="days">00</span> jours
+                    <span id="hours">00</span> heures
+                    <span id="minutes">00</span> minutes
+                    <span id="seconds">00</span> secondes
+                </div>
+            </div>
+            <form id="lottery-form" class="airdrop-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
+                <label for="lottery-email">Votre email :</label>
+                <input type="email" id="lottery-email" name="email" placeholder="Entrez votre email" required aria-label="Email pour inscription à la loterie">
+                <label for="lottery-wallet">Adresse Arbitrum :</label>
+                <input type="text" id="lottery-wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
+                <input type="hidden" name="_subject" value="Inscription à la Loterie $LEG">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
+                <button type="submit" class="cta-button">Participer à la loterie</button>
+            </form>
+            <p id="lottery-message" class="form-message hidden"></p>
+        </section>
+    </div>
+</main>
 
             <section class="section academy" id="academy">
                 <h2>Legatio Academy</h2>
