@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+le compteur de l'airdrop ne decompte toujours pas : <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -314,7 +314,7 @@
         .grid-item:hover,
         .advisor-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2); /* Bordure bleu cyan au survol */
         }
 
         .token-benefit i,
@@ -323,10 +323,10 @@
         .grid-item i,
         .advisor-card i,
         .roadmap-item i {
-            font-size: 2.2rem;
-            color: var(--primary);
+            font-size: 2.2rem; /* Taille réduite pour équilibre */
+            color: var(--primary); /* Icônes en jaune */
             margin-bottom: 1rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Animation au survol */
         }
 
         .token-benefit i:hover,
@@ -335,7 +335,7 @@
         .grid-item i:hover,
         .advisor-card i:hover,
         .roadmap-item i:hover {
-            transform: scale(1.1);
+            transform: scale(1.1); /* Zoom subtil au survol */
         }
 
         .token-benefit h3,
@@ -345,10 +345,10 @@
         .grid-item h3,
         .advisor-card h3,
         .roadmap-item h3 {
-            color: var(--secondary);
-            font-size: 1.6rem;
+            color: var(--secondary); /* Sous-titres en bleu */
+            font-size: 1.6rem; /* Taille augmentée pour lisibilité */
             margin-bottom: 1rem;
-            text-shadow: 0 0 4px rgba(0, 212, 255, 0.3);
+            text-shadow: 0 0 4px rgba(0, 212, 255, 0.3); /* Ombre pour contraste */
         }
 
         .roadmap-item {
@@ -440,19 +440,6 @@
         }
 
         /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
         .modal-content {
             background: var(--surface);
             padding: 2rem;
@@ -460,35 +447,6 @@
             max-width: 500px;
             width: 90%;
             box-shadow: var(--glow);
-            position: relative;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text);
-            cursor: pointer;
-        }
-
-        .form-message {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .form-message.success {
-            color: var(--accent);
-        }
-
-        .form-message.error {
-            color: #FF5555;
-        }
-
-        .hidden {
-            display: none;
         }
 
         /* Media Queries */
@@ -599,7 +557,7 @@
                 </div>
             </section>
 
-            <section class="section" id="nfts">
+          <section class="section" id="nfts">
                 <h2>NFTs Legatio Genesis</h2>
                 <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
                 <p>Pour précommander un NFT, envoyez le montant en ETH à l'adresse Arbitrum suivante : <strong>0x732F2d70Aa758a2D60fD81CD2ac14B6E92Ec5F44</strong>. Ensuite, remplissez le formulaire en dessous des images pour confirmer votre précommande.</p>
@@ -614,7 +572,6 @@
                         <p class="nft-price"><strong>0.015 ETH</strong></p>
                         <p class="nft-description">3 000 studios urbains modernes en centre ville.</p>
                         <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-                        <button class="cta-button" onclick="preorderNFT('City Pod', '0.015')">Précommander</button>
                     </div>
                     <div class="nft-card" data-tilt>
                         <img src="UrbanNest.jpeg" alt="Urban Nest NFT - Appartement moderne en centre-ville" class="nft-image" loading="lazy">
@@ -622,7 +579,6 @@
                         <p class="nft-price"><strong>0.03 ETH</strong></p>
                         <p class="nft-description">2 000 appartements modernes en centre-ville.</p>
                         <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-                        <button class="cta-button" onclick="preorderNFT('Urban Nest', '0.03')">Précommander</button>
                     </div>
                     <div class="nft-card" data-tilt>
                         <img src="SuburbanHaven.jpeg" alt="Suburban Haven NFT - Maison familiale en banlieue" class="nft-image" loading="lazy">
@@ -630,7 +586,6 @@
                         <p class="nft-price"><strong>0.05 ETH</strong></p>
                         <p class="nft-description">1 000 maisons familiales en banlieue.</p>
                         <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-                        <button class="cta-button" onclick="preorderNFT('Suburban Haven', '0.05')">Précommander</button>
                     </div>
                     <div class="nft-card" data-tilt>
                         <img src="AzurePrestige.jpeg" alt="Azure Prestige NFT - Villa méditerranéenne de luxe" class="nft-image" loading="lazy">
@@ -638,7 +593,6 @@
                         <p class="nft-price"><strong>0.1 ETH</strong></p>
                         <p class="nft-description">500 villas méditerranéennes de luxe.</p>
                         <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-                        <button class="cta-button" onclick="preorderNFT('Azure Prestige', '0.1')">Précommander</button>
                     </div>
                     <div class="nft-card rare" data-tilt>
                         <img src="SkyCrown.jpeg" alt="Sky Crown NFT - Penthouse de luxe en centre-ville" class="nft-image" loading="lazy">
@@ -646,15 +600,13 @@
                         <p class="nft-price"><strong>0.25 ETH</strong></p>
                         <p class="nft-description">100 penthouses de luxe en centre-ville.</p>
                         <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-                        <button class="cta-button" onclick="preorderNFT('Sky Crown', '0.25')">Précommander</button>
                     </div>
                     <div class="nft-card rare" data-tilt>
                         <img src="EternalEstate.jpeg" alt="Eternal Estate NFT - Domaine exclusif ultra-premium" class="nft-image" loading="lazy">
                         <h3>Eternal Estate</h3>
                         <p class="nft-price"><strong>1 ETH</strong></p>
-                        <p class="nft-description">50 domaines exclusifs ultra-premium.</p>
+                        <p class="nft-description">50 domaines exclusifs ultra refor-premium.</p>
                         <p class="nft-info">Livraison prévue : Q2-Q3 2025 après minting.</p>
-                        <button class="cta-button" onclick="preorderNFT('Eternal Estate', '1')">Précommander</button>
                     </div>
                 </div>
                 <div class="nft-stats">
@@ -663,54 +615,54 @@
                 </div>
             </section>
 
-            <!-- Modale pour le formulaire de précommande -->
-            <div class="modal" id="preorderModal" role="dialog" aria-labelledby="preorderModalTitle" aria-hidden="true">
-                <div class="modal-content">
-                    <button class="close-button" onclick="closePreorderModal()" aria-label="Fermer la fenêtre de précommande">×</button>
-                    <h3 id="preorderModalTitle">Confirmer votre achat NFT</h3>
-                    <p id="preorder-instructions">Veuillez confirmer votre achat en fournissant les détails ci-dessous. Cela vous rend également éligible à l'airdrop $LEG standard en Q1 2026.</p>
-                    <form id="preorder-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
-                        <label for="email">Votre email :</label>
-                        <input type="email" id="email" name="email" placeholder="Entrez votre email" required aria-label="Email pour précommande">
-                        <label for="wallet">Adresse Arbitrum :</label>
-                        <input type="text" id="wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
-                        <label for="nft-type">Type de NFT :</label>
-                        <input type="text" id="nft-type" name="nft-type" readonly aria-label="Type de NFT sélectionné">
-                        <label for="transaction-hash">Hash de la transaction :</label>
-                        <input type="text" id="transaction-hash" name="transaction-hash" placeholder="Entrez le hash de la transaction" required aria-label="Hash de la transaction">
-                        <input type="hidden" name="_subject" value="Précommande NFT Legatio Finance">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
-                        <button type="submit" class="cta-button">Confirmer la précommande</button>
-                    </form>
-                    <p id="preorder-message" class="form-message hidden"></p>
-                </div>
-            </div>
-
-            <section class="section airdrop" id="airdrop">
-                <h2>Airdrop $LEG - Loterie</h2>
-                <p>Participez à notre loterie pour tenter de gagner <strong>10,000 $LEG</strong> supplémentaires ! Inscrivez-vous avant le snapshot (Q3 2025). Tous les participants sont éligibles à l'airdrop standard de $LEG en Q1 2026.</p>
-                <div class="countdown">
-                    <h3>Temps restant avant le snapshot (30 septembre 2025) :</h3>
-                    <div id="countdown-timer" class="countdown-timer">
-                        <span id="days">00</span> jours
-                        <span id="hours">00</span> heures
-                        <span id="minutes">00</span> minutes
-                        <span id="seconds">00</span> secondes
-                    </div>
-                </div>
-                <form id="lottery-form" class="airdrop-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
-                    <label for="lottery-email">Votre email :</label>
-                    <input type="email" id="lottery-email" name="email" placeholder="Entrez votre email" required aria-label="Email pour inscription à la loterie">
-                    <label for="lottery-wallet">Adresse Arbitrum :</label>
-                    <input type="text" id="lottery-wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
-                    <input type="hidden" name="_subject" value="Inscription à la Loterie Airdrop $LEG">
+        <!-- Modale pour le formulaire de précommande -->
+        <div class="modal" id="preorderModal" role="dialog" aria-labelledby="preorderModalTitle" aria-hidden="true">
+            <div class="modal-content">
+                <button class="close-button" onclick="closePreorderModal()" aria-label="Fermer la fenêtre de précommande">×</button>
+                <h3 id="preorderModalTitle">Confirmer votre achat NFT</h3>
+                <p id="preorder-instructions"></p>
+                <form id="preorder-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
+                    <label for="email">Votre email :</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required aria-label="Email pour précommande">
+                    <label for="wallet">Adresse Arbitrum :</label>
+                    <input type="text" id="wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
+                    <label for="nft-type">Type de NFT :</label>
+                    <input type="text" id="nft-type" name="nft-type" readonly aria-label="Type de NFT sélectionné">
+                    <label for="transaction-hash">Hash de la transaction :</label>
+                    <input type="text" id="transaction-hash" name="transaction-hash" placeholder="Entrez le hash de la transaction" required aria-label="Hash de la transaction">
+                    <input type="hidden" name="_subject" value="Précommande NFT Legatio Finance">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
-                    <button type="submit" class="cta-button">Participer à la loterie</button>
+                    <button type="submit" class="cta-button">Confirmer la précommande</button>
                 </form>
-                <p id="lottery-message" class="form-message hidden"></p>
-            </section>
+                <p id="preorder-message" class="form-message hidden"></p>
+            </div>
+        </div>
+
+    <section class="section airdrop" id="airdrop">
+    <h2>Airdrop $LEG - Loterie</h2>
+    <p>Participez à notre loterie pour tenter de gagner <strong>10,000 $LEG</strong> supplémentaires ! Inscrivez-vous avant le snapshot (Q3 2025). Tous les participants sont éligibles à l'airdrop standard de $LEG en Q1 2026.</p>
+    <div class="countdown">
+        <h3>Temps restant avant le snapshot (30 septembre 2025) :</h3>
+        <div id="countdown-timer" class="countdown-timer">
+            <span id="days">00</span> jours
+            <span id="hours">00</span> heures
+            <span id="minutes">00</span> minutes
+            <span id="seconds">00</span> secondes
+        </div>
+    </div>
+    <form id="lottery-form" class="airdrop-form" action="https://formsubmit.co/legatio.finance@gmail.com" method="POST">
+        <label for="lottery-email">Votre email :</label>
+        <input type="email" id="lottery-email" name="email" placeholder="Entrez votre email" required aria-label="Email pour inscription à la loterie">
+        <label for="lottery-wallet">Adresse Arbitrum :</label>
+        <input type="text" id="lottery-wallet" name="wallet" placeholder="Entrez votre adresse Arbitrum" required aria-label="Adresse de portefeuille Arbitrum">
+        <input type="hidden" name="_subject" value="Inscription à la Loterie Airdrop $LEG">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_url" value="https://delmarcrypto.github.io/legatio-finance/">
+        <button type="submit" class="cta-button">Participer à la loterie</button>
+    </form>
+    <p id="lottery-message" class="form-message hidden"></p>
+</section>
 
             <section class="section academy" id="academy">
                 <h2>Legatio Academy</h2>
@@ -932,7 +884,7 @@
                 <div class="footer-links">
                     <a href="#faq">FAQ</a> | 
                     <a href="https://delmarcrypto.github.io/legatio-finance/privacy.html" target="_blank" rel="noopener noreferrer">Confidentialité</a> | 
-                    <a href="https://delmarcrypto.github.io/legatio-finance/terms.html" target="_blank" rel="noopener noreferrer">Conditions</a>
+                    <a href="https://delmarcrypto.github.io/legatio-finance/terms.html" target="_blank" rel="noopener noreferrer">Conditions</a> | 
                 </div>
                 <p>© 2025 Legatio Finance. Tous droits réservés.</p>
                 <a href="#start" class="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i> Retour en haut</a>
@@ -942,327 +894,275 @@
         <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script>
         <script>
-            // Ensure DOM is loaded before running scripts
-            document.addEventListener('DOMContentLoaded', () => {
-                // Hamburger Menu
-                function toggleMenu() {
-                    const menu = document.querySelector('.navbar ul');
-                    menu.classList.toggle('active');
+            // Hamburger Menu
+            function toggleMenu() {
+                const menu = document.querySelector('.navbar ul');
+                menu.classList.toggle('active');
+            }
+
+            // Particle Animation
+            const canvas = document.getElementById('particle-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = 400;
+                const particles = [];
+                const particleCount = 50;
+
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.size = Math.random() * 2 + 1;
+                        this.speedX = Math.random() * 0.5 - 0.25;
+                        this.speedY = Math.random() * 0.5 - 0.25;
+                    }
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+                        if (this.size > 0.2) this.size -= 0.01;
+                    }
+                    draw() {
+                        ctx.fillStyle = 'rgba(255, 215, 0, 0.5)';
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
                 }
 
-                // Particle Animation
-                const canvas = document.getElementById('particle-canvas');
-                if (canvas) {
-                    const ctx = canvas.getContext('2d');
-                    canvas.width = window.innerWidth;
-                    canvas.height = 400;
-                    const particles = [];
-                    const particleCount = 50;
-
-                    class Particle {
-                        constructor() {
-                            this.x = Math.random() * canvas.width;
-                            this.y = Math.random() * canvas.height;
-                            this.size = Math.random() * 2 + 1;
-                            this.speedX = Math.random() * 0.5 - 0.25;
-                            this.speedY = Math.random() * 0.5 - 0.25;
-                        }
-                        update() {
-                            this.x += this.speedX;
-                            this.y += this.speedY;
-                            if (this.size > 0.2) this.size -= 0.01;
-                        }
-                        draw() {
-                            ctx.fillStyle = 'rgba(255, 215, 0, 0.5)';
-                            ctx.beginPath();
-                            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                            ctx.fill();
-                        }
+                function init() {
+                    for (let i = 0; i < particleCount; i++) {
+                        particles.push(new Particle());
                     }
+                }
 
-                    function init() {
-                        for (let i = 0; i < particleCount; i++) {
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach((particle, index) => {
+                        particle.update();
+                        particle.draw();
+                        if (particle.size <= 0.2) {
+                            particles.splice(index, 1);
                             particles.push(new Particle());
                         }
-                    }
-
-                    function animate() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        particles.forEach((particle, index) => {
-                            particle.update();
-                            particle.draw();
-                            if (particle.size <= 0.2) {
-                                particles.splice(index, 1);
-                                particles.push(new Particle());
-                            }
-                        });
-                        requestAnimationFrame(animate);
-                    }
-
-                    init();
-                    animate();
-                }
-
-                // MetaMask Connection
-                let provider, userAddress;
-                async function connectMetaMask() {
-                    const walletMessage = document.getElementById('wallet-message');
-                    if (!window.ethereum) {
-                        walletMessage.classList.remove('hidden');
-                        walletMessage.innerHTML = 'MetaMask requis. <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer">Téléchargez MetaMask</a>.';
-                        return;
-                    }
-                    try {
-                        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                        userAddress = accounts[0];
-                        provider = new ethers.providers.Web3Provider(window.ethereum);
-                        if (await window.ethereum.request({ method: 'eth_chainId' }) !== '0xa4b1') {
-                            await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0xa4b1' }] });
-                            walletMessage.classList.remove('hidden');
-                            walletMessage.innerHTML = 'Connecté à Arbitrum ! Précommandez vos NFTs maintenant.';
-                        } else {
-                            walletMessage.classList.remove('hidden');
-                            walletMessage.innerHTML = 'Connecté à Arbitrum ! Précommandez vos NFTs maintenant.';
-                        }
-                    } catch (e) {
-                        walletMessage.classList.remove('hidden');
-                        walletMessage.innerHTML = e.message || 'Erreur de connexion.';
-                    }
-                }
-
-                window.addEventListener('load', () => {
-                    if (window.ethereum) {
-                        provider = new ethers.providers.Web3Provider(window.ethereum);
-                        provider.listAccounts().then(accounts => {
-                            if (accounts.length > 0) {
-                                userAddress = accounts[0];
-                                document.getElementById('wallet-message').classList.remove('hidden');
-                                document.getElementById('wallet-message').innerHTML = 'Connecté à Arbitrum ! Précommandez vos NFTs maintenant.';
-                            }
-                        });
-                    }
-                });
-
-                // NFT Pre-order Modal
-                function preorderNFT(nftName, price) {
-                    const modal = document.getElementById('preorderModal');
-                    const nftTypeInput = document.getElementById('nft-type');
-                    const instructions = document.getElementById('preorder-instructions');
-                    nftTypeInput.value = nftName;
-                    instructions.innerHTML = `Envoyez ${price} ETH à l'adresse Arbitrum : <strong>0x732F2d70Aa758a2D60fD81CD2ac14B6E92Ec5F44</strong>. Ensuite, entrez le hash de la transaction ci-dessous pour confirmer votre achat de ${nftName}.`;
-                    modal.style.display = 'flex';
-                }
-
-                function closePreorderModal() {
-                    const modal = document.getElementById('preorderModal');
-                    const message = document.getElementById('preorder-message');
-                    modal.style.display = 'none';
-                    message.classList.add('hidden');
-                    message.classList.remove('success', 'error');
-                    document.getElementById('preorder-form').reset();
-                }
-
-                // Pre-order Form Submission
-                const preorderForm = document.getElementById('preorder-form');
-                if (preorderForm) {
-                    preorderForm.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        const form = e.target;
-                        const message = document.getElementById('preorder-message');
-                        message.classList.remove('hidden');
-
-                        const email = form.querySelector('#email').value;
-                        if (localStorage.getItem(`preorder_submitted_${email}`)) {
-                            message.textContent = 'Vous avez déjà soumis une précommande avec cet email !';
-                            message.classList.add('error');
-                            message.classList.remove('success');
-                            return;
-                        }
-
-                        try {
-                            const response = await fetch(form.action, {
-                                method: form.method,
-                                body: new FormData(form),
-                                headers: { 'Accept': 'application/json' },
-                            });
-                            if (response.ok) {
-                                message.textContent = 'Précommande confirmée ! Vous êtes éligible pour l’airdrop $LEG en Q1 2026.';
-                                message.classList.add('success');
-                                message.classList.remove('error');
-                                localStorage.setItem(`preorder_submitted_${email}`, 'true');
-                                form.reset();
-                                setTimeout(closePreorderModal, 2000);
-                            } else {
-                                message.textContent = 'Erreur lors de la confirmation. Réessayez.';
-                                message.classList.add('error');
-                                message.classList.remove('success');
-                            }
-                        } catch (e) {
-                            message.textContent = 'Erreur lors de la confirmation. Réessayez.';
-                            message.classList.add('error');
-                            message.classList.remove('success');
-                        }
                     });
+                    requestAnimationFrame(animate);
                 }
 
-                // Countdown Timer for Airdrop
-                const snapshotDate = new Date('2025-09-30T23:59:59Z'); // UTC snapshot date
-                function updateCountdown() {
-                    const now = new Date();
-                    const timeDifference = snapshotDate - now;
+                init();
+                animate();
+            }
 
-                    const timerElement = document.getElementById('countdown-timer');
-                    if (!timerElement) {
-                        console.error('Countdown timer element not found');
-                        return;
-                    }
-
-                    if (timeDifference <= 0) {
-                        timerElement.innerHTML = 'Snapshot terminé !';
-                        return;
-                    }
-
-                    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                }
-
-                // Initialize countdown and update every second
-                updateCountdown();
-                setInterval(updateCountdown, 1000);
-
-                // Lottery Form Submission
-                const lotteryForm = document.getElementById('lottery-form');
-                if (lotteryForm) {
-                    lotteryForm.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        const form = e.target;
-                        const message = document.getElementById('lottery-message');
-                        message.classList.remove('hidden');
-
-                        const email = form.querySelector('#lottery-email').value;
-                        if (localStorage.getItem(`lottery_submitted_${email}`)) {
-                            message.textContent = 'Vous êtes déjà inscrit à la loterie !';
-                            message.classList.add('error');
-                            message.classList.remove('success');
-                            return;
-                        }
-
-                        try {
-                            const response = await fetch(form.action, {
-                                method: form.method,
-                                body: new FormData(form),
-                                headers: { 'Accept': 'application/json' },
-                            });
-                            if (response.ok) {
-                                message.textContent = 'Inscription à la loterie réussie ! Vous êtes éligible pour l’airdrop $LEG et la loterie.';
-                                message.classList.add('success');
-                                message.classList.remove('error');
-                                localStorage.setItem(`lottery_submitted_${email}`, 'true');
-                                form.reset();
-                            } else {
-                                message.textContent = 'Erreur lors de l’inscription. Réessayez.';
-                                message.classList.add('error');
-                                message.classList.remove('success');
-                            }
-                        } catch (e) {
-                            message.textContent = 'Erreur lors de l’inscription. Réessayez.';
-                            message.classList.add('error');
-                            message.classList.remove('success');
-                        }
-                    });
-                }
-
-                // Contact Form
-                const contactForm = document.getElementById('contact-form');
-                if (contactForm) {
-                    contactForm.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        const form = e.target;
-                        const message = document.getElementById('contact-message');
-                        message.classList.remove('hidden');
-                        try {
-                            const response = await fetch(form.action, {
-                                method: form.method,
-                                body: new FormData(form),
-                                headers: { 'Accept': 'application/json' },
-                            });
-                            if (response.ok) {
-                                message.textContent = 'Message envoyé avec succès ! Nous vous répondrons bientôt.';
-                                message.classList.add('success');
-                                message.classList.remove('error');
-                                form.reset();
-                            } else {
-                                message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
-                                message.classList.add('error');
-                                message.classList.remove('success');
-                            }
-                        } catch (e) {
-                            message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
-                            message.classList.add('error');
-                            message.classList.remove('success');
-                        }
-                    });
-                }
-
-                // Modal Control
-                function openModal() {
-                    document.getElementById('contactModal').style.display = 'flex';
-                }
-
-                function closeModal() {
-                    document.getElementById('contactModal').style.display = 'none';
-                    const message = document.getElementById('contact-message');
-                    message.classList.add('hidden');
-                    message.classList.remove('success', 'error');
-                    document.getElementById('contact-form').reset();
-                }
-
-                // Simulator
-                function simulateReturns() {
-                    const amount = document.getElementById('investment-amount').value;
-                    const fundType = document.getElementById('fund-type').value;
-                    const result = document.getElementById('simulator-result');
-                    result.classList.remove('hidden');
-                    if (!amount || amount <= 0) {
-                        result.textContent = 'Veuillez entrer un montant valide.';
-                        return;
-                    }
-                    const yields = { urban: 0.08, gold: 0.05, social: 0.06 };
-                    const projected = (amount * yields[fundType]).toFixed(2);
-                    result.textContent = `Rendement annuel estimé : $${projected} pour ${fundType}.`;
-                }
-
-                // NFT Purchase (Placeholder)
-                async function buyNFT(nftName, price) {
-                    const walletMessage = document.getElementById('wallet-message');
+            // MetaMask Connection
+            let provider, userAddress;
+            async function connectMetaMask() {
+                const walletMessage = document.getElementById('wallet-message');
+                if (!window.ethereum) {
                     walletMessage.classList.remove('hidden');
-                    if (!provider || !userAddress) {
-                        walletMessage.innerHTML = 'Veuillez connecter MetaMask pour acheter.';
-                        await connectMetaMask();
-                        return;
+                    walletMessage.innerHTML = 'MetaMask requis. <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer">Téléchargez MetaMask</a>.';
+                    return;
+                }
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    userAddress = accounts[0];
+                    provider = new ethers.providers.Web3Provider(window.ethereum);
+                    if (await window.ethereum.request({ method: 'eth_chainId' }) !== '0xa4b1') {
+                        await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0xa4b1' }] });
+                        walletMessage.classList.remove('hidden');
+                        walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+                    } else {
+                        walletMessage.classList.remove('hidden');
+                        walletMessage.innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
                     }
-                    try {
-                        const signer = provider.getSigner();
-                        const contractAddress = 'YOUR_CONTRACT_ADDRESS';
-                        const contractABI = [];
-                        const contract = new ethers.Contract(contractAddress, contractABI, signer);
-                        const priceInWei = ethers.utils.parseEther(price);
-                        const tx = await contract.mintNFT(userAddress, { value: priceInWei });
-                        walletMessage.innerHTML = `Transaction en cours pour ${nftName}...`;
-                        await tx.wait();
-                        walletMessage.innerHTML = `Achat de ${nftName} réussi !`;
-                    } catch (e) {
-                        walletMessage.innerHTML = `Erreur lors de l'achat : ${e.message || 'Réessayez.'}`;
-                    }
+                } catch (e) {
+                    walletMessage.classList.remove('hidden');
+                    walletMessage.innerHTML = e.message || 'Erreur de connexion.';
+                }
+            }
+
+            window.addEventListener('load', () => {
+                if (window.ethereum) {
+                    provider = new ethers.providers.Web3Provider(window.ethereum);
+                    provider.listAccounts().then(accounts => {
+                        if (accounts.length > 0) {
+                            userAddress = accounts[0];
+                            document.getElementById('wallet-message').classList.remove('hidden');
+                            document.getElementById('wallet-message').innerHTML = 'Connecté à Arbitrum ! Achetez des NFTs maintenant.';
+                        } else {
+                            document.getElementById('wallet-message').classList.remove('hidden');
+                        }
+                    });
+                } else {
+                    document.getElementById('wallet-message').classList.remove('hidden');
                 }
             });
+
+            // Airdrop Form
+            document.getElementById('airdrop-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const message = document.getElementById('airdrop-message');
+                message.classList.remove('hidden');
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        message.textContent = 'Inscription réussie ! Éligible pour l’airdrop $LEG en Q1 2026.';
+                        form.reset();
+                    } else {
+                        message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+                    }
+                } catch (e) {
+                    message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+                }
+            });
+
+            // Contact Form
+            document.getElementById('contact-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const message = document.getElementById('contact-message');
+                message.classList.remove('hidden');
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        message.textContent = 'Message envoyé avec succès ! Nous vous répondrons bientôt.';
+                        message.classList.add('success');
+                        form.reset();
+                    } else {
+                        message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
+                        message.classList.add('error');
+                    }
+                } catch (e) {
+                    message.textContent = 'Erreur lors de l’envoi du message. Réessayez.';
+                    message.classList.add('error');
+                }
+            });
+
+            // Modal Control
+            function openModal() {
+                document.getElementById('contactModal').style.display = 'flex';
+            }
+
+            function closeModal() {
+                document.getElementById('contactModal').style.display = 'none';
+                const message = document.getElementById('contact-message');
+                message.classList.add('hidden');
+                message.classList.remove('success', 'error');
+                document.getElementById('contact-form').reset();
+            }
+
+            // Simulator
+            function simulateReturns() {
+                const amount = document.getElementById('investment-amount').value;
+                const fundType = document.getElementById('fund-type').value;
+                const result = document.getElementById('simulator-result');
+                result.classList.remove('hidden');
+                if (!amount || amount <= 0) {
+                    result.textContent = 'Veuillez entrer un montant valide.';
+                    return;
+                }
+                const yields = { urban: 0.08, gold: 0.05, social: 0.06 };
+                const projected = (amount * yields[fundType]).toFixed(2);
+                result.textContent = `Rendement annuel estimé : $${projected} pour ${fundType}.`;
+            }
+
+    // Countdown Timer for Airdrop
+    const snapshotDate = new Date('2025-09-30T23:59:59Z'); // UTC snapshot date
+    function updateCountdown() {
+        const now = new Date();
+        const timeDifference = snapshotDate - now;
+
+        if (timeDifference <= 0) {
+            document.getElementById('countdown-timer').innerHTML = 'Snapshot terminé !';
+            return;
+        }
+
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    // Initialize countdown and update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Lottery Form Submission
+    document.getElementById('lottery-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const message = document.getElementById('lottery-message');
+        message.classList.remove('hidden');
+
+        // Basic duplicate submission check using localStorage
+        const email = form.querySelector('#lottery-email').value;
+        if (localStorage.getItem(`lottery_submitted_${email}`)) {
+            message.textContent = 'Vous êtes déjà inscrit à la loterie !';
+            message.classList.add('error');
+            message.classList.remove('success');
+            return;
+        }
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' },
+            });
+            if (response.ok) {
+                message.textContent = 'Inscription à la loterie réussie ! Vous êtes éligible pour l’airdrop $LEG et la loterie.';
+                message.classList.add('success');
+                message.classList.remove('error');
+                localStorage.setItem(`lottery_submitted_${email}`, 'true');
+                form.reset();
+            } else {
+                message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+                message.classList.add('error');
+                message.classList.remove('success');
+            }
+        } catch (e) {
+            message.textContent = 'Erreur lors de l’inscription. Réessayez.';
+            message.classList.add('error');
+            message.classList.remove('success');
+        }
+    });
+
+            // NFT Purchase
+            async function buyNFT(nftName, price) {
+                const walletMessage = document.getElementById('wallet-message');
+                walletMessage.classList.remove('hidden');
+                if (!provider || !userAddress) {
+                    walletMessage.innerHTML = 'Veuillez connecter MetaMask pour acheter.';
+                    await connectMetaMask();
+                    return;
+                }
+                try {
+                    const signer = provider.getSigner();
+                    const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+                    const contractABI = [];
+                    const contract = new ethers.Contract(contractAddress, contractABI, signer);
+                    const priceInWei = ethers.utils.parseEther(price);
+                    const tx = await contract.mintNFT(userAddress, { value: priceInWei });
+                    walletMessage.innerHTML = `Transaction en cours pour ${nftName}...`;
+                    await tx.wait();
+                    walletMessage.innerHTML = `Achat de ${nftName} réussi !`;
+                } catch (e) {
+                    walletMessage.innerHTML = `Erreur lors de l'achat : ${e.message || 'Réessayez.'}`;
+                }
+            }
         </script>
     </body>
 </html>
