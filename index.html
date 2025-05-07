@@ -82,6 +82,16 @@
             --rare-glow: 0 0 8px rgba(255, 85, 85, 0.5); /* Subtle red glow for rare NFTs */
         }
 
+        .form-message {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-left: 10px;
+    transition: opacity 0.3s;
+}
+.form-message-hidden {
+    opacity: 0;
+}
+        
         * {
             box-sizing: border-box;
             margin: 0;
@@ -575,16 +585,6 @@
     </div>
 </section>
 
-<script>
-function copyWalletAddress() {
-    const walletAddress = document.getElementById('wallet-address').innerText;
-    navigator.clipboard.writeText(walletAddress).then(() => {
-        alert('Adresse copiée dans le presse-papiers !');
-    }).catch(err => {
-        console.error('Erreur lors de la copie : ', err);
-    });
-}
-</script>
                 <div class="nft-grid">
                     <div class="nft-card" data-tilt>
                         <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" loading="lazy">
@@ -1223,6 +1223,29 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("L'élément #contact-form n'existe pas dans le DOM.");
     }
 });
+
+            function copyWalletAddress() {
+    console.log('Bouton de copie cliqué');
+    const walletAddress = document.getElementById('wallet-address').innerText;
+    const copyMessage = document.getElementById('copy-message');
+    navigator.clipboard.writeText(walletAddress).then(() => {
+        console.log('Copie réussie');
+        if (copyMessage) {
+            copyMessage.textContent = 'Adresse copiée !';
+            copyMessage.classList.remove('form-message-hidden');
+            setTimeout(() => {
+                copyMessage.classList.add('form-message-hidden');
+                copyMessage.textContent = '';
+            }, 2000);
+        }
+    }).catch(err => {
+        console.error('Erreur lors de la copie : ', err);
+        if (copyMessage) {
+            copyMessage.textContent = 'Erreur lors de la copie.';
+            copyMessage.classList.remove('form-message-hidden');
+        }
+    });
+}
         </script>
     </body>
 </html>
