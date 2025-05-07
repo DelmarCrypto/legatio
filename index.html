@@ -558,13 +558,33 @@
             </section>
 
           <section class="section" id="nfts">
-                <h2>NFTs Legatio Genesis</h2>
-                <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
-                <p>Pour précommander un NFT, envoyez le montant en ETH à l'adresse Arbitrum suivante : <strong>0x732F2d70Aa758a2D60fD81CD2ac14B6E92Ec5F44</strong>. Ensuite, remplissez le formulaire en dessous des images pour confirmer votre précommande.</p>
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <button class="cta-button" onclick="connectMetaMask()">Connecter MetaMask</button>
-                    <p id="wallet-message" class="form-message hidden"></p>
-                </div>
+    <h2>NFTs Legatio Genesis</h2>
+    <p class="section-subtitle">6 650 NFTs immobiliers exclusifs pour financer le MVP</p>
+    <p>Pour précommander un NFT, envoyez le montant en ETH à l'adresse Arbitrum suivante : 
+        <strong id="wallet-address">0x732F2d70Aa758a2D60fD81CD2ac14B6E92Ec5F44</strong>
+        <button onclick="copyWalletAddress()" style="margin-left: 10px; cursor: pointer; background: none; border: none; padding: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+        </button>
+    </p>
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <button class="cta-button" onclick="connectMetaMask()">Connecter MetaMask</button>
+        <p id="wallet-message" class="form-message hidden"></p>
+    </div>
+</section>
+
+<script>
+function copyWalletAddress() {
+    const walletAddress = document.getElementById('wallet-address').innerText;
+    navigator.clipboard.writeText(walletAddress).then(() => {
+        alert('Adresse copiée dans le presse-papiers !');
+    }).catch(err => {
+        console.error('Erreur lors de la copie : ', err);
+    });
+}
+</script>
                 <div class="nft-grid">
                     <div class="nft-card" data-tilt>
                         <img src="CityPod.jpeg" alt="City Pod NFT - Studio urbain moderne" class="nft-image" loading="lazy">
